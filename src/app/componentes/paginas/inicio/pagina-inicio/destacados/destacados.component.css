@@ -1,0 +1,6 @@
+.titulo {
+    display: flex;
+    justify-content: center;
+    color: white;
+    /* text-shadow: 2px 5px 7px white; */
+}

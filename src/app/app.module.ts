@@ -8,6 +8,7 @@ import { ProductosComponent } from './componentes/paginas/productos/productos.co
 import { HeaderComponent } from './componentes/header/header.component';
 import { PaginaInicioComponent } from './componentes/paginas/inicio/pagina-inicio/pagina-inicio.component';
 import { BannerComponent } from './componentes/paginas/inicio/pagina-inicio/banner/banner.component';
+import { DestacadosComponent } from './componentes/paginas/inicio/pagina-inicio/destacados/destacados.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BannerComponent } from './componentes/paginas/inicio/pagina-inicio/bann
     ProductosComponent,
     HeaderComponent,
     PaginaInicioComponent,
-    BannerComponent
+    BannerComponent,
+    DestacadosComponent
   ],
   imports: [
     BrowserModule,
