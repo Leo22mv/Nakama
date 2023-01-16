@@ -1,0 +1,15 @@
+.card-title {
+    text-shadow: 2px 2px 3px white;
+}
+.card:hover {
+    border: 2px solid white;
+    transition: all .5s;
+    transform: scale(1.03, 1.03);
+}
+.card-footer {
+    display: flex;
+    justify-content: center;
+}
+.btn:hover {
+    color: black;
+}

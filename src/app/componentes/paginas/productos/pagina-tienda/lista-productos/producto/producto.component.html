@@ -1,0 +1,13 @@
+<div class="card text-bg-dark h-100">
+      <img src="{{ producto.urlFoto }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ producto.nombre }}</h5>
+        <p class="card-text">{{ producto.descripcion }}</p>
+        <small class="text-muted">Serie: {{ producto.serie }}</small>
+      </div>
+      <div class="card-footer">
+        <!-- <small class="text-muted">Last updated 3 mins ago</small> -->
+        <button *ngIf="producto.stock>0" class="btn btn-outline-light btn-lg">Comprar</button>
+        <small *ngIf="producto.stock==0" class="text-muted">No hay stock disponible</small>
+      </div>
+    </div>

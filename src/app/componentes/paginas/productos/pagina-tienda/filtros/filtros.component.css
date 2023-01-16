@@ -1,0 +1,15 @@
+#dropdown {
+    margin: 15px;
+    display: inline-block
+}
+.dropdown-item {
+    /* display: flex; */
+    /* justify-content: center; */
+}
+#dropdown-menu {
+    width: 500px;
+}
+#customRange3 {
+    margin: 15px;
+    width: 100px;
+}
