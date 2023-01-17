@@ -22,8 +22,11 @@
             <a class="nav-link">Contacto</a>
           </li> -->
         </ul>
-        <a class="navbar-brand" routerLink="../login">
+        <a *ngIf="!logged" class="navbar-brand" routerLink="../login">
           <img src="../../../assets/img/login.png" width="40px">
+        </a>
+        <a *ngIf="logged" class="navbar-brand" routerLink="../login" (click)="logout()">
+          <img src="../../../assets/img/logout.png" width="40px">
         </a>
 
         <!-- <form class="d-flex" role="search">

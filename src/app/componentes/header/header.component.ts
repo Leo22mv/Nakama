@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  logged: boolean | undefined;
+
   constructor() { }
 
   ngOnInit(): void {
+    if (sessionStorage.getItem("token")) {
+      this.logged = true
+    } else {
+      this.logged = false
+    }
+  }
+
+  logout() {
+    sessionStorage.removeItem("token");
   }
 
 }

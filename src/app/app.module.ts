@@ -18,6 +18,14 @@ import { PaginacionComponent } from './componentes/paginas/productos/pagina-tien
 import { CategoriasComponent } from './componentes/paginas/productos/pagina-tienda/categorias/categorias.component';
 import { LoginComponent } from './componentes/paginas/login/login.component';
 import { PaginaLoginComponent } from './componentes/paginas/login/pagina-login/pagina-login.component';
+import { TituloComponent } from './componentes/paginas/login/pagina-login/titulo/titulo.component';
+import { LoginFormComponent } from './componentes/paginas/login/pagina-login/login-form/login-form.component';
+import { RegistrarseComponent } from './componentes/paginas/login/pagina-login/registrarse/registrarse.component';
+import { RegisterComponent } from './componentes/paginas/register/register.component';
+import { RegisterFormComponent } from './componentes/paginas/register/register-form/register-form.component';
+import { FooterComponent } from './componentes/footer/footer.component';
+import { TituloRComponent } from './componentes/paginas/register/titulo-r/titulo-r.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,11 +44,19 @@ import { PaginaLoginComponent } from './componentes/paginas/login/pagina-login/p
     PaginacionComponent,
     CategoriasComponent,
     LoginComponent,
-    PaginaLoginComponent
+    PaginaLoginComponent,
+    TituloComponent,
+    LoginFormComponent,
+    RegistrarseComponent,
+    RegisterComponent,
+    RegisterFormComponent,
+    FooterComponent,
+    TituloRComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

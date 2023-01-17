@@ -1,0 +1,13 @@
+.col, .contenedor {
+    display: flex;
+    justify-content: center;
+}
+.form-floating {
+    margin: 50px
+}
+button, input {
+    box-shadow: 4px 4px 4px white;
+}
+.alert {
+    margin: 15px;
+}

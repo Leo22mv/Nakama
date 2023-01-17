@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm">
+        <div class="form-floating mb-3">
+            <input [(ngModel)]="email" type="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com">
+            <label for="floatingInput">Nombre de usuario o dirección de correo electrónico</label>
+          </div>
+          <div class="form-floating">
+            <input [(ngModel)]="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Contraseña</label>
+          </div>
+          <div *ngIf="error==true" class="alert alert-danger">            
+            Nombre de usuario o contraseña incorrectos
+          </div>
+          <div class="contenedor">
+          <button type="submit" class="btn btn-dark btn-lg" (click)="login()">
+            Iniciar sesión
+          </button>
+            </div>
+        </div>
+    <div class="col-sm-2"></div>
+</div>
