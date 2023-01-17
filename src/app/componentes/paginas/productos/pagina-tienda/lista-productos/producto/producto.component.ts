@@ -11,6 +11,7 @@ export class ProductoComponent implements OnInit {
   @Input() producto: IProducto = {
     id: 0,
     urlFoto: "",
+    precio: 0,
     nombre: "",
     descripcion: "",
     stock: 0,

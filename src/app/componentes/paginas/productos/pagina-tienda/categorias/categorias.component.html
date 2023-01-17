@@ -3,7 +3,7 @@
     Categoría
     </button>
     <ul class="dropdown-menu dropdown-menu-dark">
-    <li><a class="dropdown-item active">Todas</a></li>
-    <li><a class="dropdown-item" routerLink="/tienda">Ropa</a></li>
+    <li><a [ngClass]="categoriaTodas" routerLink="/tienda">Todas</a></li>
+    <li><a [ngClass]="categoriaRopa" (click)="filtrarCategoria()">Ropa</a></li>
     </ul>
 </div>

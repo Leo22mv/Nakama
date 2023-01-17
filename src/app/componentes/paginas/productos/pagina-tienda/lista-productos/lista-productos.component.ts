@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Params, Router } from '@angular/router';
 import { IProducto } from './producto-interface';
 
 @Component({
@@ -13,6 +13,7 @@ export class ListaProductosComponent implements OnInit {
     {
     id: 1,
     urlFoto: "../../../../../../assets/img/capa-akatsuki2.png",
+    precio: 5000,
     nombre: "Capa de Akatsuki",
     descripcion: "Atuendo característico de la organización criminal mas famosa del mundo.",
     stock: 1,
@@ -22,6 +23,7 @@ export class ListaProductosComponent implements OnInit {
     {
       id: 2,
       urlFoto: "../../../../../../assets/img/capamikasa2.png",
+      precio: 3000,
       nombre: "Capa del cuerpo de exploración",
       descripcion: "Uniforme del cuerpo encargado de explorar fuera de las murallas y matar titanes.",
       stock: 1,
@@ -31,6 +33,7 @@ export class ListaProductosComponent implements OnInit {
     {
       id: 3,
       urlFoto: "../../../../../../assets/img/isotipo.png",
+      precio: 1,
       nombre: "Producto",
       descripcion: "Aca iría la descripción del producto.",
       stock: 1,
@@ -40,6 +43,7 @@ export class ListaProductosComponent implements OnInit {
     {
       id: 4,
       urlFoto: "../../../../../../assets/img/isotipo.png",
+      precio: 1,
       nombre: "Producto sin stock",
       descripcion: "Aca iría la descripción del producto.",
       stock: 0,
@@ -49,6 +53,7 @@ export class ListaProductosComponent implements OnInit {
     {
       id: 5,
       urlFoto: "../../../../../../assets/img/isotipo.png",
+      precio: 1,
       nombre: "Producto",
       descripcion: "Aca iría la descripción del producto.",
       stock: 1,
@@ -58,6 +63,7 @@ export class ListaProductosComponent implements OnInit {
     {
       id: 6,
       urlFoto: "../../../../../../assets/img/isotipo.png",
+      precio: 1,
       nombre: "Producto sin stock",
       descripcion: "Aca iría la descripción del producto.",
       stock: 0,
@@ -66,9 +72,13 @@ export class ListaProductosComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  params: string | undefined;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-  }
 
+    this.route.queryParams.subscribe(params => this.params = params['categoria']);
+
+  }
 }

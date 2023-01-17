@@ -1,7 +1,8 @@
 <div class="card text-bg-dark h-100">
       <img src="{{ producto.urlFoto }}" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">{{ producto.nombre }}</h5>
+        <h4 class="card-title">{{ producto.nombre }}</h4>
+        <h1 class="card-text" id="precio">$ {{ producto.precio }}</h1>
         <p class="card-text">{{ producto.descripcion }}</p>
         <small class="text-muted">Serie: {{ producto.serie }}</small>
       </div>

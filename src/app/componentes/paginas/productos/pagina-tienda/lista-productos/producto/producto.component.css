@@ -1,4 +1,7 @@
 .card-title {
+    text-shadow: 2px 2px 3px gray;
+}
+#precio {
     text-shadow: 2px 2px 3px white;
 }
 .card:hover {
@@ -12,4 +15,7 @@
 }
 .btn:hover {
     color: black;
+}
+.card-title, .card-text, .card-footer {
+    text-align: center;
 }
