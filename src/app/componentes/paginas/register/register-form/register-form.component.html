@@ -5,18 +5,16 @@
             <input type="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com" [(ngModel)]="email">
             <label for="floatingInput">Dirección de correo electrónico</label>
           </div>
-          <div *ngIf="errorActual=='email'" class="alert alert-danger">
-            
-              El email ingresado pertenece a una cuenta existente
-            
-          </div>
+          <!-- <div *ngIf="errorActual=='email'" class="alert alert-danger">
+              El email ingresado pertenece a una cuenta existente            
+          </div> -->
           <div class="form-floating">
             <input type="text" class="form-control" id="floatingUsername" placeholder="Username" [(ngModel)]="username">
             <label for="floatingUsername">Nombre de usuario</label>
           </div>
-          <div *ngIf="errorActual=='username'" class="alert alert-danger">            
+          <!-- <div *ngIf="errorActual=='username'" class="alert alert-danger">            
             El nombre de usuario ingresado pertenece a una cuenta existente
-          </div>
+          </div> -->
           <div class="form-floating">
             <input type="password" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="password">
             <label for="floatingPassword">Contraseña</label>
@@ -26,7 +24,7 @@
             Registrarse
           </button>
           </div>
-          <div *ngIf="errorActual=='ninguno'" class="alert alert-success">
+          <div *ngIf="errorActual!==undefined" class="alert alert-success">
             
               Cuenta registrada correctamente
             

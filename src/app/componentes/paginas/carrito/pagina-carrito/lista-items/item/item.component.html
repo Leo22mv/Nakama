@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col">
+        <div class="card mb-3 bg-dark">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="{{ item.urlFoto }}" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{ item.nombre }}</h5>
+                  <p class="card-text">{{ item.descripcion }}</p>
+                  <p class="card-text"><small class="text-muted">Serie: {{ item.serie }}</small></p>
+                  <p class="card-text"><small class="text-muted">Categoría: {{ item.categoria }}</small></p>
+                </div>
+                <div class="card-footer">
+                    
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-2">
+        <button type="button" class="btn-close btn-close-white" aria-label="Close" (click)="eliminarItem()"></button>
+    </div>
+</div>

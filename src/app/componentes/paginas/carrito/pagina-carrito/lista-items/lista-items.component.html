@@ -1,0 +1,23 @@
+<div *ngIf="listaCarrito.length>0; else carritoVacio">
+    <div *ngFor="let item of listaCarrito; index as i;">
+        <app-item [item]="item" [index]="i"></app-item>
+    </div>
+</div>
+
+<ng-template #carritoVacio>
+    <div class="row">
+        <div class="col">
+            <h2 class="display-4">
+                El carrito de compras esta vacío
+            </h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-dark btn-lg" routerLink="/tienda">
+                Ir a la tienda
+            </button>
+        </div>
+    </div>    
+</ng-template>

@@ -1,0 +1,7 @@
+<a *ngIf="logged" class="navbar-brand" routerLink="/carrito">
+    <img src="../../../assets/img/carrito.png" width="40px">
+    <span  id="carrito-btn" class="position-absolute top-30 start-90 translate-middle badge rounded-pill bg-light">
+        {{ listaCarrito.length }}
+        <span class="visually-hidden">Cantidad de productos en carrito</span>
+    </span>
+</a>

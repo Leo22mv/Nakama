@@ -1,33 +1,19 @@
 <nav class="navbar sticky-top navbar-dark navbar-expand-sm bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" routerLink="../inicio">
-        <img src="../../../assets/img/isotipo.png" alt="Logo de Nakama" width="50" height="50">
-      </a>
-      <a class="navbar-brand" routerLink="../inicio">
-        <img src="../../../assets/img/logotipo.png" alt="Logo de Nakama" width="50" height="50">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <app-iso></app-iso>
+      <app-logo></app-logo>
+      <app-colapsador></app-colapsador>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="../inicio">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="../tienda">Tienda</a>
-          </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link">Contacto</a>
-          </li> -->
+          <app-a-inicio></app-a-inicio>
+          <app-a-tienda></app-a-tienda>
+          <app-a-contacto></app-a-contacto>
+
         </ul>
-        <a *ngIf="!logged" class="navbar-brand" routerLink="../login">
-          <img src="../../../assets/img/login.png" width="40px">
-        </a>
-        <a *ngIf="logged" class="navbar-brand" routerLink="../login" (click)="logout()">
-          <img src="../../../assets/img/logout.png" width="40px">
-        </a>
+        <app-a-login></app-a-login>
+        <app-carrito-btn></app-carrito-btn>
+        <app-logout></app-logout>
 
         <!-- <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Búsqueda" aria-label="Search">

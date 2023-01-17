@@ -22,7 +22,7 @@ export class LoginFormComponent implements OnInit {
   login() {
     for (let usuario of this.auth.listaUsuarios) {
       if ((usuario.email==this.email||usuario.username==this.email)&&usuario.password==this.password) {
-        sessionStorage.setItem("token", "1");
+        localStorage.setItem("token", "1");
         this.router.navigate(["/inicio"]);
       } else {
         this.error = true;

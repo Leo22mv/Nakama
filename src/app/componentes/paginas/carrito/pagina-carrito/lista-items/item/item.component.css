@@ -1,0 +1,12 @@
+.card-body {
+    color: white;
+}
+.card {
+    margin: 20px;
+}
+.btn-close {
+    margin-top: 20px;
+    margin-left: -40px;
+    border: 2px solid white;
+    box-shadow: 4 4 4 white;
+}

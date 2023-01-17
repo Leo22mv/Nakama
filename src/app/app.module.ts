@@ -26,6 +26,20 @@ import { RegisterFormComponent } from './componentes/paginas/register/register-f
 import { FooterComponent } from './componentes/footer/footer.component';
 import { TituloRComponent } from './componentes/paginas/register/titulo-r/titulo-r.component';
 import { FormsModule } from '@angular/forms';
+import { CarritoComponent } from './componentes/paginas/carrito/carrito.component';
+import { IsoComponent } from './componentes/header/iso/iso.component';
+import { LogoComponent } from './componentes/header/logo/logo.component';
+import { AInicioComponent } from './componentes/header/a-inicio/a-inicio.component';
+import { ATiendaComponent } from './componentes/header/a-tienda/a-tienda.component';
+import { AContactoComponent } from './componentes/header/a-contacto/a-contacto.component';
+import { ALoginComponent } from './componentes/header/a-login/a-login.component';
+import { LogoutComponent } from './componentes/header/logout/logout.component';
+import { ColapsadorComponent } from './componentes/header/colapsador/colapsador.component';
+import { CarritoBtnComponent } from './componentes/header/carrito-btn/carrito-btn.component';
+import { PaginaCarritoComponent } from './componentes/paginas/carrito/pagina-carrito/pagina-carrito.component';
+import { ListaItemsComponent } from './componentes/paginas/carrito/pagina-carrito/lista-items/lista-items.component';
+import { ItemComponent } from './componentes/paginas/carrito/pagina-carrito/lista-items/item/item.component';
+import { TituloCarritoComponent } from './componentes/paginas/carrito/pagina-carrito/titulo-carrito/titulo-carrito.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +65,21 @@ import { FormsModule } from '@angular/forms';
     RegisterComponent,
     RegisterFormComponent,
     FooterComponent,
-    TituloRComponent
+    TituloRComponent,
+    CarritoComponent,
+    IsoComponent,
+    LogoComponent,
+    AInicioComponent,
+    ATiendaComponent,
+    AContactoComponent,
+    ALoginComponent,
+    LogoutComponent,
+    ColapsadorComponent,
+    CarritoBtnComponent,
+    PaginaCarritoComponent,
+    ListaItemsComponent,
+    ItemComponent,
+    TituloCarritoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IProducto } from '../producto-interface';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/servicios/auth.service';
+import { IProducto } from '../../../../../../modelos/producto-interface';
 
 @Component({
   selector: 'app-producto',
@@ -19,9 +21,17 @@ export class ProductoComponent implements OnInit {
     categoria: ""
   };
 
-  constructor() { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  agregarAlCarrito(producto: IProducto) {
+    if (localStorage.getItem("token")) {
+      this.auth.listaCarrito.push(producto);
+    } else {
+      this.router.navigate(["/login"])
+    }    
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Params, Router } from '@angular/router';
-import { IProducto } from './producto-interface';
+import { IProducto } from '../../../../../modelos/producto-interface';
 
 @Component({
   selector: 'app-lista-productos',

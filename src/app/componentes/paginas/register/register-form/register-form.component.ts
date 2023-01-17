@@ -22,29 +22,64 @@ export class RegisterFormComponent implements OnInit {
   }
 
   error(error: string) {
-    switch (error) {
-      case "email":
-        this.errorActual = "email"
-      break
-      case "username":
-        this.errorActual = "username"
-      break
-      case "ninguno":
-        this.errorActual = "ninguno"
-      break
+    // switch (error) {
+    //   case "username":
+        
+    //   break
+    //   case "email":
+    //     this.errorActual = "email"
+    //   break
+    //   case "ninguno":
+    //     this.errorActual = "ninguno"
+    //   break
+    //   default:
+    //     this.errorActual = undefined
+    //     break
+    // }
+    if (error=="username") {
+      this.errorActual = "username"
+    } else if (error=="email") {
+      this.errorActual = "email"
+    } else {
+      this.errorActual = "ninguno"
     }
   }
 
   registrarse() {
     for (let usuario of this.auth.listaUsuarios) {
-      if (usuario.email==this.email) {
-        this.error("email");
-      } else if (usuario.username==this.username) {
+
+      // switch (usuario.email) {
+      //   case this.email:
+      //     this.error("email");
+      //     break
+      //   default:
+      //     switch (usuario.username) {
+      //       case this.username:
+      //         this.error("username");
+      //         break
+      //       default:
+      //         this.auth.listaUsuarios.push(
+      //           {
+      //             id: (this.auth.listaUsuarios.length)+1,
+      //             email: this.email,
+      //             username: this.username,
+      //             password: this.password
+      //           }
+      //         )
+      //         this.error("ninguno");
+      //         break
+      //     }
+      //     break
+      // }
+
+      if (usuario.username==this.username) {
         this.error("username");
+      } else if (usuario.email==this.email) {
+        this.error("email");
       } else {
         this.auth.listaUsuarios.push(
           {
-            id: (this.auth.listaUsuarios.length--),
+            id: (this.auth.listaUsuarios.length)+1,
             email: this.email,
             username: this.username,
             password: this.password
