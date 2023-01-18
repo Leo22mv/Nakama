@@ -1,6 +1,29 @@
 <div *ngIf="listaCarrito.length>0; else carritoVacio">
     <div *ngFor="let item of listaCarrito; index as i;">
-        <app-item [item]="item" [index]="i"></app-item>
+        <app-item [item]="item" [index]="i" (totalEmit)="actualizarThisTotal($event)"></app-item>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col">
+            <div class="card mb-3 bg-dark">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="../../../../../../assets/img/isotipo.png" class="img-fluid rounded-start">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Total</h5>              
+                    </div>
+                    <div class="card-footer">
+                        <h2 class="card-text">$ {{ total }}</h2> 
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+            
+        </div>
     </div>
 </div>
 

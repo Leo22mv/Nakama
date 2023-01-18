@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IProducto } from 'src/app/modelos/producto-interface';
 import { AuthService } from 'src/app/servicios/auth.service';
 
@@ -22,6 +22,8 @@ export class ItemComponent implements OnInit {
     categoria: ''
   }
 
+  @Output() totalEmit: EventEmitter<number> = new EventEmitter<number>();
+
   constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
@@ -29,6 +31,10 @@ export class ItemComponent implements OnInit {
 
   eliminarItem() {
     this.auth.listaCarrito.splice(this.index, 1)
+
+    this.auth.sumarTotal(this.auth.listaCarrito)
+
+    this.totalEmit.emit(this.auth.total);
   }
 
 }
