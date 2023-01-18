@@ -40,6 +40,7 @@ import { PaginaCarritoComponent } from './componentes/paginas/carrito/pagina-car
 import { ListaItemsComponent } from './componentes/paginas/carrito/pagina-carrito/lista-items/lista-items.component';
 import { ItemComponent } from './componentes/paginas/carrito/pagina-carrito/lista-items/item/item.component';
 import { TituloCarritoComponent } from './componentes/paginas/carrito/pagina-carrito/titulo-carrito/titulo-carrito.component';
+import { CheckoutComponent } from './componentes/paginas/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { TituloCarritoComponent } from './componentes/paginas/carrito/pagina-car
     PaginaCarritoComponent,
     ListaItemsComponent,
     ItemComponent,
-    TituloCarritoComponent
+    TituloCarritoComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
