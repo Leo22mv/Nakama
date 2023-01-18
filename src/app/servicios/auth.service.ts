@@ -8,16 +8,7 @@ import { IProducto } from '../modelos/producto-interface';
 export class AuthService {
 
   listaCarrito: IProducto[] = [
-    {
-      id: 1,
-      urlFoto: "../../../../../../assets/img/capa-akatsuki2.png",
-      precio: 5000,
-      nombre: "Capa de Akatsuki",
-      descripcion: "Atuendo característico de la organización criminal mas famosa del mundo.",
-      stock: 1,
-      serie: "Naruto",
-      categoria: "ropa"
-    }
+    
   ];
 
   listaUsuarios: IUsuario[] = [
