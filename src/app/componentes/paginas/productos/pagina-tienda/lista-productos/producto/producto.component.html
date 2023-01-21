@@ -8,7 +8,7 @@
       </div>
       <div class="card-footer">
         <!-- <small class="text-muted">Last updated 3 mins ago</small> -->
-        <button *ngIf="producto.stock>0" class="btn btn-outline-light btn-lg" (click)="agregarAlCarrito(producto)">Agregar al carrito</button>
+        <button *ngIf="producto.stock>0" [ngClass]="botonActivo" (click)="agregarAlCarrito(producto)">Agregar al carrito</button>
         <small *ngIf="producto.stock==0" class="text-muted">No hay stock disponible</small>
       </div>
     </div>

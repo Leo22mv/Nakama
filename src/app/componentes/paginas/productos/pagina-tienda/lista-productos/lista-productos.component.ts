@@ -49,26 +49,6 @@ export class ListaProductosComponent implements OnInit {
       stock: 0,
       serie: "",
       categoria: ""
-    },
-    {
-      id: 5,
-      urlFoto: "../../../../../../assets/img/isotipo.png",
-      precio: 1,
-      nombre: "Producto",
-      descripcion: "Aca iría la descripción del producto.",
-      stock: 1,
-      serie: "",
-      categoria: ""
-    },
-    {
-      id: 6,
-      urlFoto: "../../../../../../assets/img/isotipo.png",
-      precio: 1,
-      nombre: "Producto sin stock",
-      descripcion: "Aca iría la descripción del producto.",
-      stock: 0,
-      serie: "",
-      categoria: ""
     }
   ]
 

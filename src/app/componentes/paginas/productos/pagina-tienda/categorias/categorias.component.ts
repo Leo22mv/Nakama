@@ -37,15 +37,7 @@ export class CategoriasComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.route.queryParams.subscribe(params => this.categoriaActiva = params['categoria']);
-
-    if (this.categoriaActiva=="ropa") {
-      this.categoriaRopa = this.claseCategoriaActiva;
-      this.categoriaTodas = this.claseCategoriaInactiva;
-    } else {
-      this.categoriaRopa = this.claseCategoriaInactiva;
-      this.categoriaTodas = this.claseCategoriaActiva;
-    }
+    
   }
 
   filtrarCategoria() {
@@ -56,6 +48,18 @@ export class CategoriasComponent implements OnInit, OnChanges {
     }
 
     this.router.navigate(["/tienda"], navigationExtras)
+  }
+
+  actualizarCategoria() {
+    this.route.queryParams.subscribe(params => this.categoriaActiva = params['categoria']);
+
+    if (this.categoriaActiva=="ropa") {
+      this.categoriaRopa = this.claseCategoriaActiva;
+      this.categoriaTodas = this.claseCategoriaInactiva;
+    } else {
+      this.categoriaRopa = this.claseCategoriaInactiva;
+      this.categoriaTodas = this.claseCategoriaActiva;
+    }
   }
 
 }

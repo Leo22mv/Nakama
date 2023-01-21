@@ -2,11 +2,11 @@
     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
     Filtros
     </button>
-    <ul class="dropdown-menu dropdown-menu-dark">
+    <ul class="dropdown-menu dropdown-menu-dark" ngClass="filtros">
     <li>
         <form class="dropdown-item">
 
-            <div class="dropdown">
+            <!-- <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                 Precio
                 </button>
@@ -20,14 +20,22 @@
                     <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
                 </li>
                 </ul>
-            </div>
+            </div> -->
 
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
                   Mostrar solo productos en stock
                 </label>
-              </div>
+            </div>
+
+            <p>Serie:</p>
+
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Todas</option>
+                <option value="1">Naruto</option>
+                <option value="2">Attack on titan</option>
+            </select>
 
             <button type="submit" class="btn btn-primary mb-3">Filtrar</button>
         </form>

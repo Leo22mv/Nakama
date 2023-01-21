@@ -13,3 +13,7 @@
     margin: 15px;
     width: 100px;
 }
+.form-select {
+    background-color: #212529;
+    color: #f3f3f3;
+}

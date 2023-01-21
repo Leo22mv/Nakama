@@ -6,8 +6,9 @@
 }
 .card:hover {
     border: 2px solid white;
-    transition: all .5s;
-    transform: scale(1.03, 1.03);
+    transition: all .3s;
+    transform: scale(1.01, 1.01);
+    box-shadow: 3px 3px 3px #fff;
 }
 .card-footer {
     display: flex;
@@ -15,6 +16,7 @@
 }
 .btn:hover {
     color: black;
+    box-shadow: 2px 2px 2px #000;
 }
 .card-title, .card-text, .card-footer {
     text-align: center;
