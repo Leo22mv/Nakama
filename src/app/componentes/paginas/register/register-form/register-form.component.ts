@@ -10,8 +10,9 @@ import { AuthService } from 'src/app/servicios/auth.service';
 })
 export class RegisterFormComponent implements OnInit {
 
-  username: string = ""
+  username: string = "";
   password: string = "";
+  email: string = "";
 
   // registroForm: FormGroup;
 
@@ -26,7 +27,7 @@ export class RegisterFormComponent implements OnInit {
   constructor (private authService: AuthService) {}
 
   onSubmit() {
-    this.authService.register(this.username, this.password);
+    this.authService.register(this.email, this.username, this.password);
     
     // if (this.registroForm.invalid) {
   //     return;

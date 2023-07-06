@@ -9,15 +9,47 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  uri = "http://localhost:8080/registrarse";
+  uri = "http://localhost:8080";
+  error = false;
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  register(username: string, password: string) {
-    this.http.post(this.uri, {username: username, password: password})
+  register(email: string, username: string, password: string) {
+    this.http.post(this.uri + "/registrarse", {email: email, username: username, password: password})
       .subscribe((resp:any) => {
         this.router.navigate(["login"]);
       })
+  }
+
+  // login(username: string, password: string) {
+  //   this.http.post(this.uri + "/login", {username: username, password: password})
+  //     .subscribe((resp: any) => {
+  //       this.router.navigate(["tienda"])
+  //       localStorage.setItem("token", "1")
+  //     })
+  // }
+
+  login(username: string, password: string) {
+    this.http.post(this.uri + "/login", {username: username, password: password})
+      .subscribe(
+        response => {
+          this.router.navigate(["tienda"])
+            localStorage.setItem("token", "1")
+        },
+        error => {
+          console.log(error)
+          if (error.status==200) {
+            this.router.navigate(["tienda"])
+            localStorage.setItem("token", "1")
+            // respuesta = false
+          } else {
+            this.error = true;
+            // respuesta = true
+          }
+        }
+      )
+      // let respuesta: boolean;
+      // return respuesta;
   }
 
   // listaCarrito: IProducto[] = [

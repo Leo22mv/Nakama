@@ -9,7 +9,8 @@
             <input [(ngModel)]="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
             <label for="floatingPassword">Contraseña</label>
           </div>
-          <div *ngIf="error==true" class="alert alert-danger">            
+          <div *ngIf="error" class="alert alert-danger">
+            <!-- <div class="alert alert-danger"> -->
             Nombre de usuario o contraseña incorrectos
           </div>
           <div class="contenedor">

@@ -9,8 +9,8 @@ import { AuthService } from 'src/app/servicios/auth.service';
 })
 export class LoginFormComponent implements OnInit {
 
-  email: string | undefined;
-  password: string | undefined;
+  email: string = "";
+  password: string = "";
 
   error: boolean = false;
 
@@ -28,6 +28,8 @@ export class LoginFormComponent implements OnInit {
     //     this.error = true;
     //   }
     // }
+    this.auth.login(this.email, this.password);
+    this.error = this.auth.error;
   }
 
 }
