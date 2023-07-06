@@ -5,14 +5,17 @@
     text-shadow: 2px 2px 3px white;
 }
 .card:hover {
-    border: 2px solid white;
+    border: 1px solid white;
     transition: all .3s;
     transform: scale(1.01, 1.01);
     box-shadow: 3px 3px 3px #fff;
 }
 .card-footer {
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    /* justify-content: center; */
+}
+.btn {
+    margin-top: 10px;
 }
 .btn:hover {
     color: black;
@@ -20,4 +23,7 @@
 }
 .card-title, .card-text, .card-footer {
     text-align: center;
+}
+input {
+    width: 25%;
 }

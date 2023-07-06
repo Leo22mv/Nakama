@@ -41,6 +41,7 @@ import { ListaItemsComponent } from './componentes/paginas/carrito/pagina-carrit
 import { ItemComponent } from './componentes/paginas/carrito/pagina-carrito/lista-items/item/item.component';
 import { TituloCarritoComponent } from './componentes/paginas/carrito/pagina-carrito/titulo-carrito/titulo-carrito.component';
 import { CheckoutComponent } from './componentes/paginas/checkout/checkout.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { CheckoutComponent } from './componentes/paginas/checkout/checkout.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

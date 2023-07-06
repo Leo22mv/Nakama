@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: "", redirectTo: "/inicio", pathMatch: "full"},
   {path: "inicio", component: InicioComponent},
   {path: "tienda", component: ProductosComponent, children: [
-    // {path: "ropa", component: ProductosComponent}
+    {path: "ropa", component: ProductosComponent}
   ]},
   {path: "login", component: LoginComponent},
   {path: "registrarse", component: RegisterComponent},

@@ -7,4 +7,6 @@ export interface IProducto {
     serie: string;
     stock: number;
     categoria: string;
+    activo: boolean;
+    cantidad: number;
 }

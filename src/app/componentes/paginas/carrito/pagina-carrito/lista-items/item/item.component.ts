@@ -19,7 +19,9 @@ export class ItemComponent implements OnInit {
     descripcion: '',
     serie: '',
     stock: 0,
-    categoria: ''
+    categoria: '',
+    activo: false,
+    cantidad: 1
   }
 
   @Output() totalEmit: EventEmitter<number> = new EventEmitter<number>();
@@ -30,11 +32,11 @@ export class ItemComponent implements OnInit {
   }
 
   eliminarItem() {
-    this.auth.listaCarrito.splice(this.index, 1)
+    // this.auth.listaCarrito.splice(this.index, 1)
 
-    this.auth.sumarTotal(this.auth.listaCarrito)
+    // this.auth.sumarTotal(this.auth.listaCarrito)
 
-    this.totalEmit.emit(this.auth.total);
+    // this.totalEmit.emit(this.auth.total);
   }
 
 }

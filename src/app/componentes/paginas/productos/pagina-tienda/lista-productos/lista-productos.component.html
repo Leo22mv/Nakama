@@ -1,16 +1,53 @@
-  <div *ngIf="params=='ropa'">
-    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-5 g-5" id="lista">
+<div *ngIf="params=='Todas'">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 row-cols-xl-5 g-5" id="lista">
       <div *ngFor="let producto of listaProductos">
-        <div *ngIf="producto.categoria=='ropa'">
-          <app-producto [producto]="producto"></app-producto>
+        <app-producto [producto]="producto" (evento)="mostrarSucces(producto)"></app-producto>
+        <div *ngIf="producto.activo">
+          <p class="p">Agregado correctamente</p>
+          <p>Ir al carrito</p>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div *ngIf="params=='ropa'">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-5 g-5" id="lista">
+    <div *ngFor="let producto of listaProductos">
+      <div *ngIf="producto.categoria=='ropa'">
+        <app-producto [producto]="producto"></app-producto>
+        <div *ngIf="producto.activo">
+          <p class="p">Agregado correctamente</p>
+          <!-- <p>Ir al carrito</p> -->
         </div>
       </div>
     </div>
   </div>
-  <div *ngIf="params==undefined">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 row-cols-xl-5 g-5" id="lista">
-        <div *ngFor="let producto of listaProductos">
-          <app-producto [producto]="producto"></app-producto>
+</div>
+
+<div *ngIf="params2=='Naruto'">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-5 g-5" id="lista">
+    <div *ngFor="let producto of listaProductos">
+      <div *ngIf="producto.serie=='Naruto'">
+        <app-producto [producto]="producto"></app-producto>
+        <div *ngIf="producto.activo">
+          <p class="p">Agregado correctamente</p>
+          <!-- <p>Ir al carrito</p> -->
         </div>
       </div>
+    </div>
   </div>
+</div>
+
+<div *ngIf="params2=='Attack on titan (Shingeki no kyojin)'">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-5 g-5" id="lista">
+    <div *ngFor="let producto of listaProductos">
+      <div *ngIf="producto.serie=='Attack on titan (Shingeki no kyojin)'">
+        <app-producto [producto]="producto"></app-producto>
+        <div *ngIf="producto.activo">
+          <p class="p">Agregado correctamente</p>
+          <!-- <p>Ir al carrito</p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

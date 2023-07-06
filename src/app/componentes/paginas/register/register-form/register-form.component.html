@@ -1,34 +1,41 @@
 <div class="row">
     <div class="col-sm-2"></div>
     <div class="col-sm">
-        <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com" [(ngModel)]="email">
-            <label for="floatingInput">Dirección de correo electrónico</label>
-          </div>
+        <!-- <div class="form-floating mb-3"> -->
+            <!-- <input type="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com" [(ngModel)]="email"> -->
+            <!-- <input type="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com"> -->
+            <!-- <label for="floatingInput">Dirección de correo electrónico</label> -->
+          <!-- </div> -->
           <!-- <div *ngIf="errorActual=='email'" class="alert alert-danger">
               El email ingresado pertenece a una cuenta existente            
           </div> -->
+          <!-- <form> -->
           <div class="form-floating">
-            <input type="text" class="form-control" id="floatingUsername" placeholder="Username" [(ngModel)]="username">
+            <input type="text" class="form-control" id="floatingUsername" placeholder="Username" [(ngModel)]="this.username">
+            <!-- <input type="text" class="form-control" id="floatingUsername" placeholder="Username"> -->
             <label for="floatingUsername">Nombre de usuario</label>
           </div>
           <!-- <div *ngIf="errorActual=='username'" class="alert alert-danger">            
             El nombre de usuario ingresado pertenece a una cuenta existente
           </div> -->
           <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="password">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="this.password">
+            <!-- <input type="password" class="form-control" id="floatingPassword" placeholder="Password"> -->
             <label for="floatingPassword">Contraseña</label>
           </div>          
           <div class="contenedor">
-          <button type="submit" class="btn btn-dark btn-lg" (click)="registrarse()">
+          <!-- <button type="submit" class="btn btn-dark btn-lg" (click)="registrarse()"> -->
+            <button type="submit" class="btn btn-dark btn-lg" (click)="onSubmit()">
             Registrarse
           </button>
           </div>
-          <div *ngIf="errorActual!==undefined" class="alert alert-success">
+        <!-- </form> -->
+          <!-- <div *ngIf="errorActual!==undefined" class="alert alert-success"> -->
+            <!-- <div class="alert alert-success">
             
               Cuenta registrada correctamente
             
-          </div>
+          </div> -->
         </div>
     <div class="col-sm-2"></div>
 </div>

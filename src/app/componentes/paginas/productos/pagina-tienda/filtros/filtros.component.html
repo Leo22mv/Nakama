@@ -4,7 +4,8 @@
     </button>
     <ul class="dropdown-menu dropdown-menu-dark" ngClass="filtros">
     <li>
-        <form class="dropdown-item">
+        <div class="dropdown-item">
+        <!-- <form class="dropdown-item"> -->
 
             <!-- <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
@@ -22,7 +23,7 @@
                 </ul>
             </div> -->
 
-            <div class="form-check">
+            <!-- <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
                   Mostrar solo productos en stock
@@ -37,8 +38,27 @@
                 <option value="2">Attack on titan</option>
             </select>
 
-            <button type="submit" class="btn btn-primary mb-3">Filtrar</button>
-        </form>
+            <button type="submit" class="btn btn-primary mb-3">Filtrar</button> -->
+
+            <div class="dropdown" id="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                Serie
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark" ngClass="filtros">
+                    <li>
+                        <a class="dropdown-item active">Todas</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" (click)="filtrarANaruto()">Naruto</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" (click)="filtrarAShingeki()">Attack on titan</a>
+                    </li>
+                </ul>
+            </div>
+
+            </div>
+        <!-- </form> -->
     </li>
     </ul>
 </div>

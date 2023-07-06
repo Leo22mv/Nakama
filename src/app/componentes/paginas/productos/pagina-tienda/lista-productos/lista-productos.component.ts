@@ -18,7 +18,9 @@ export class ListaProductosComponent implements OnInit {
     descripcion: "Atuendo característico de la organización criminal mas famosa del mundo.",
     stock: 1,
     serie: "Naruto",
-    categoria: "ropa"
+    categoria: "ropa",
+    activo: false,
+    cantidad: 1
     },
     {
       id: 2,
@@ -28,7 +30,9 @@ export class ListaProductosComponent implements OnInit {
       descripcion: "Uniforme del cuerpo encargado de explorar fuera de las murallas y matar titanes.",
       stock: 1,
       serie: "Attack on titan (Shingeki no kyojin)",
-      categoria: "ropa"
+      categoria: "ropa",
+      activo: false,
+      cantidad: 1
     },
     {
       id: 3,
@@ -38,27 +42,40 @@ export class ListaProductosComponent implements OnInit {
       descripcion: "Aca iría la descripción del producto.",
       stock: 1,
       serie: "",
-      categoria: ""
+      categoria: "",
+      activo: false,
+      cantidad: 1
     },
     {
       id: 4,
       urlFoto: "../../../../../../assets/img/isotipo.png",
-      precio: 1,
+      precio: 50,
       nombre: "Producto sin stock",
       descripcion: "Aca iría la descripción del producto.",
       stock: 0,
       serie: "",
-      categoria: ""
+      categoria: "",
+      activo: false,
+      cantidad: 1
     }
   ]
 
+  agregado: boolean = false;
+
   params: string | undefined;
+  params2: string | undefined;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
     this.route.queryParams.subscribe(params => this.params = params['categoria']);
+    this.route.queryParams.subscribe(params => this.params2 = params['serie']);
 
   }
+
+  mostrarSucces(producto: IProducto) {
+    producto.activo = true;
+  }
+
 }
