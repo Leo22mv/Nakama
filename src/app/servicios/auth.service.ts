@@ -22,6 +22,7 @@ export class AuthService {
         // alert("error")
         this.error = true;
       })
+      console.log(this.uri)
   }
 
   // login(username: string, password: string) {
