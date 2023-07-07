@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  uri = "http://localhost:8080";
+  uri = "https://mellow-melba-ef2107.netlify.app";
   error = false;
 
   constructor(private http: HttpClient, private router: Router) { }
