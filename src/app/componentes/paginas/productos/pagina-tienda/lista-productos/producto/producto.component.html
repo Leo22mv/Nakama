@@ -5,12 +5,11 @@
       <img src="{{ producto.urlFoto }}" class="card-img-top" alt="...">
       <div class="card-body">
         <h4 class="card-title">{{ producto.nombre }}</h4>
-        <h1 class="card-text" id="precio">$ {{ producto.precio }}</h1>
         <p class="card-text">{{ producto.descripcion }}</p>
         <small class="text-muted">Serie: {{ producto.serie }}</small>
-        
       </div>
       <div class="card-footer">
+        <h1 class="card-text" id="precio">$ {{ producto.precio }}</h1>
         <!-- <div  *ngIf="producto.stock>0">
           <p>Cantidad:</p>
           <input type="number">

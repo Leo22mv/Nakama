@@ -21,7 +21,7 @@ export class CarritoBtnComponent implements OnInit {
     } else {
       this.logged = false
     }
-    // this.listaCarrito = this.auth.listaCarrito
+    this.listaCarrito = this.auth.listaCarrito
   }
 
 }

@@ -62,7 +62,7 @@ export class ListaProductosComponent implements OnInit {
 
   agregado: boolean = false;
 
-  params: string | undefined;
+  params: string = "Todas";
   params2: string | undefined;
 
   constructor(private route: ActivatedRoute) { }

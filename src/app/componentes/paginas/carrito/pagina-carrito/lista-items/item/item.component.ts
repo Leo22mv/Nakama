@@ -32,11 +32,11 @@ export class ItemComponent implements OnInit {
   }
 
   eliminarItem() {
-    // this.auth.listaCarrito.splice(this.index, 1)
+    this.auth.listaCarrito.splice(this.index, 1)
 
-    // this.auth.sumarTotal(this.auth.listaCarrito)
+    this.auth.sumarTotal(this.auth.listaCarrito)
 
-    // this.totalEmit.emit(this.auth.total);
+    this.totalEmit.emit(this.auth.total);
   }
 
 }

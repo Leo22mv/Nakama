@@ -24,8 +24,8 @@ export class ListaItemsComponent implements OnInit, OnChanges {
   }
 
   actualizarTotal() {
-    // this.auth.sumarTotal(this.auth.listaCarrito);
-    // this.total = this.auth.total; 
+    this.auth.sumarTotal(this.auth.listaCarrito);
+    this.total = this.auth.total; 
   }
 
   recibirTotal(evento: number) {

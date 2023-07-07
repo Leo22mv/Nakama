@@ -14,7 +14,7 @@ export class PaginaCarritoComponent implements OnInit {
   constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
-    // this.listaCarrito = this.auth.listaCarrito
+    this.listaCarrito = this.auth.listaCarrito
   }
 
 }

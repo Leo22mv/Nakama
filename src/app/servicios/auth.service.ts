@@ -52,9 +52,9 @@ export class AuthService {
       // return respuesta;
   }
 
-  // listaCarrito: IProducto[] = [
+  listaCarrito: IProducto[] = [
     
-  // ];
+  ];
 
   // listaUsuarios: IUsuario[] = [
   //   {
@@ -77,15 +77,15 @@ export class AuthService {
   //   }
   // ];
 
-  // total: number = 0;
+  total: number = 0;
 
-  // sumarTotal(lista: IProducto[]) {
-  //   let totall: number = 0;
-  //   for (let item of lista) {
-  //     totall = totall + item.precio;
-  //   }
-  //   this.total = totall
-  // }
+  sumarTotal(lista: IProducto[]) {
+    let totall: number = 0;
+    for (let item of lista) {
+      totall = totall + item.precio;
+    }
+    this.total = totall
+  }
 
   
 }

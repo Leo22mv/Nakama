@@ -13,7 +13,7 @@ export class ProductoComponent implements OnInit {
 
   @Output() evento: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  botonActivo: string = "btn btn-outline-success btn-lg"
+  botonActivo: string = "btn btn-outline-light btn-lg"
 
   @Input() producto: IProducto = {
     id: 0,
@@ -35,30 +35,37 @@ export class ProductoComponent implements OnInit {
 
   agregarAlCarrito(producto: IProducto) {
     if (localStorage.getItem("token")) {
-      // this.auth.listaCarrito.push(producto);
+      this.auth.listaCarrito.push(producto);
     } else {
       this.router.navigate(["/login"])
     }
-    this.prserv.activo = producto.id
+    // this.prserv.activo = producto.id
 
-    this.producto.activo = true
+    this.actualizarBoton()
 
-    let navigationExtras: NavigationExtras = {
-      queryParams: {
-        activo: true
-      }
-    }
+    // this.producto.activo = true
+
+    // let navigationExtras: NavigationExtras = {
+    //   queryParams: {
+    //     activo: true
+    //   }
+    // }
 
     // this.router.navigate(["/tienda"], navigationExtras)
 
   }
 
   actualizarBoton() {
-    if (this.producto.activo) {
+    // if (this.producto.activo) {
+    //   this.botonActivo = "btn btn-outline-light btn-lg"
+    // } else {
+    //   this.botonActivo = "btn btn-outline-success btn-lg"
+    // }
+
+    this.botonActivo = "btn btn-outline-success btn-lg"
+    setTimeout(() => {
       this.botonActivo = "btn btn-outline-light btn-lg"
-    } else {
-      this.botonActivo = "btn btn-outline-success btn-lg"
-    }
+    }, 500);
   }
 
 }

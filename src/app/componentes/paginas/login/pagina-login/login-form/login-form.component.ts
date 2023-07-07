@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/servicios/auth.service';
 
@@ -7,14 +7,17 @@ import { AuthService } from 'src/app/servicios/auth.service';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
-export class LoginFormComponent implements OnInit {
+export class LoginFormComponent implements OnInit, OnChanges {
 
   email: string = "";
   password: string = "";
 
-  error: boolean = false;
+  error: boolean = this.auth.error;
 
   constructor(private auth: AuthService, private router: Router) { }
+  ngOnChanges(changes: SimpleChanges): void {
+    
+  }
 
   ngOnInit(): void {
   }
@@ -31,5 +34,4 @@ export class LoginFormComponent implements OnInit {
     this.auth.login(this.email, this.password);
     this.error = this.auth.error;
   }
-
 }
