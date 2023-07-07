@@ -36,6 +36,8 @@ export class LoginFormComponent implements OnInit, OnChanges {
     this.auth.login(this.email, this.password);
     this.error = this.auth.error;
     this.actualizarBoton()
+    // localStorage.setItem("token", "1")
+    // this.router.navigate(["inicio"])
   }
 
   actualizarBoton() {

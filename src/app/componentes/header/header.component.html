@@ -5,13 +5,11 @@
       <app-colapsador></app-colapsador>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          
           <app-a-inicio></app-a-inicio>
           <app-a-tienda></app-a-tienda>
           <app-a-contacto></app-a-contacto>
-
+          <app-a-perfil *ngIf="logueado"></app-a-perfil>
         </ul>
-        <app-a-perfil *ngIf="logueado!=null"></app-a-perfil>
         <app-a-login></app-a-login>
         <app-carrito-btn></app-carrito-btn>
         <app-logout></app-logout>
