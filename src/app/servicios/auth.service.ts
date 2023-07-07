@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  uri = "https://mellow-melba-ef2107.netlify.app";
+  uri = "https://nakama-0.azurewebsites.net";
   error = false;
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -22,7 +22,7 @@ export class AuthService {
         // alert("error")
         this.error = true;
       })
-      console.log(this.uri)
+      // console.log(this.uri)
   }
 
   // login(username: string, password: string) {
