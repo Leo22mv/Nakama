@@ -42,6 +42,7 @@ import { ItemComponent } from './componentes/paginas/carrito/pagina-carrito/list
 import { TituloCarritoComponent } from './componentes/paginas/carrito/pagina-carrito/titulo-carrito/titulo-carrito.component';
 import { CheckoutComponent } from './componentes/paginas/checkout/checkout.component';
 import { HttpClientModule } from '@angular/common/http';
+import { APerfilComponent } from './componentes/header/a-perfil/a-perfil.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { HttpClientModule } from '@angular/common/http';
     ListaItemsComponent,
     ItemComponent,
     TituloCarritoComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    APerfilComponent
   ],
   imports: [
     BrowserModule,
