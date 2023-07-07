@@ -14,6 +14,10 @@ export class RegisterFormComponent implements OnInit {
   password: string = "";
   email: string = "";
 
+  boton: string = "btn btn-dark btn-lg"
+
+  error: boolean = false
+
   // registroForm: FormGroup;
 
   // constructor(private formBuilder: FormBuilder, private http: HttpClient) {
@@ -44,6 +48,19 @@ export class RegisterFormComponent implements OnInit {
   //         // Manejar errores de la solicitud
   //       }
   //     );
+    this.actualizarBoton()
+    this.actualizarError()
+  }
+
+  actualizarBoton() {
+    this.boton = "btn btn-success btn-lg"
+    setTimeout(() => {
+      this.boton = "btn btn-dark btn-lg"
+    }, 2000);
+  }
+
+  actualizarError() {
+    this.error = this.authService.error
   }
 
   // id: number | undefined;

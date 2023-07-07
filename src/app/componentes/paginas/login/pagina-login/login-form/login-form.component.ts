@@ -14,6 +14,8 @@ export class LoginFormComponent implements OnInit, OnChanges {
 
   error: boolean = this.auth.error;
 
+  boton: string = "btn btn-dark btn-lg"
+
   constructor(private auth: AuthService, private router: Router) { }
   ngOnChanges(changes: SimpleChanges): void {
     
@@ -33,5 +35,13 @@ export class LoginFormComponent implements OnInit, OnChanges {
     // }
     this.auth.login(this.email, this.password);
     this.error = this.auth.error;
+    this.actualizarBoton()
+  }
+
+  actualizarBoton() {
+    this.boton = "btn btn-success btn-lg"
+    setTimeout(() => {
+      this.boton = "btn btn-dark btn-lg"
+    }, 2000);
   }
 }

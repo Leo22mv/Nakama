@@ -25,9 +25,13 @@
           </div>          
           <div class="contenedor">
           <!-- <button type="submit" class="btn btn-dark btn-lg" (click)="registrarse()"> -->
-            <button type="submit" class="btn btn-dark btn-lg" (click)="onSubmit()">
+            <button type="submit" [ngClass]="boton" (click)="onSubmit()">
             Registrarse
           </button>
+          </div>
+
+          <div *ngIf="error" class="alert alert-danger">            
+            Error
           </div>
         <!-- </form> -->
           <!-- <div *ngIf="errorActual!==undefined" class="alert alert-success"> -->

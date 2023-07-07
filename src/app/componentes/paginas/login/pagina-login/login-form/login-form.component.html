@@ -14,7 +14,7 @@
             Nombre de usuario o contraseña incorrectos
           </div>
           <div class="contenedor">
-          <button type="submit" class="btn btn-dark btn-lg" (click)="login()">
+          <button type="submit" [ngClass]="boton" (click)="login()">
             Iniciar sesión
           </button>
             </div>

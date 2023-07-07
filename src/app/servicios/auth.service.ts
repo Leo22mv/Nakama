@@ -18,6 +18,9 @@ export class AuthService {
     this.http.post(this.uri + "/registrarse", {email: email, username: username, password: password})
       .subscribe((resp:any) => {
         this.router.navigate(["login"]);
+      }, (err: any) => {
+        // alert("error")
+        this.error = true;
       })
   }
 
