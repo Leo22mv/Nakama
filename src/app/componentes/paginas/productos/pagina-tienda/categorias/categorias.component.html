@@ -1,9 +1,9 @@
 <div class="dropdown">
-    <button (click)="actualizarCategoria()" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     Categoría
     </button>
     <ul class="dropdown-menu dropdown-menu-dark">
-    <li><a [ngClass]="categoriaTodas" routerLink="/tienda">Todas</a></li>
-    <li><a [ngClass]="categoriaRopa" (click)="filtrarCategoria()">Ropa</a></li>
+    <li><a [ngClass]="categoriaTodas" (click)="filtrarCategoria('todas')">Todas</a></li>
+    <li><a [ngClass]="categoriaRopa" (click)="filtrarCategoria('ropa')">Ropa</a></li>
     </ul>
 </div>

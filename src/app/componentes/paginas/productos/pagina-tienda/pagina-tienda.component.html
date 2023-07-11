@@ -1,5 +1,5 @@
-<app-categorias></app-categorias>
+<app-categorias (ordenarEmit)="actualizarCategoria($event)"></app-categorias>
+<app-ordenar (ordenarEmit)="actualizarOrden($event)"></app-ordenar>
 <!-- <app-filtros></app-filtros> -->
-<!-- <app-ordenar></app-ordenar> -->
-<app-lista-productos></app-lista-productos>
+<app-lista-productos  [ordenActual]="ordenActual" [categoriaActual]="categoriaActual"></app-lista-productos>
 <app-paginacion></app-paginacion>

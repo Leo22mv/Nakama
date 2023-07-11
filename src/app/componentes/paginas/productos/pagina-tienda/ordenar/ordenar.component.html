@@ -3,9 +3,7 @@
     Ordenar por
     </button>
     <ul class="dropdown-menu dropdown-menu-dark">
-    <li><a class="dropdown-item active">Popularidad - Mayor a menor</a></li>
-    <li><a class="dropdown-item">Popularidad - Menor a mayor</a></li>
-    <li><a class="dropdown-item">Precio - Mayor a menor</a></li>
-    <li><a class="dropdown-item">Precio - Menor a mayor</a></li>
+        <li><a [ngClass]="claseActivo" (click)="ordenarPrecioDescendente()">Precio - Mayor a menor</a></li>
+        <li><a [ngClass]="claseInactivo" (click)="ordenarPrecioAscendente()">Precio - Menor a mayor</a></li>
     </ul>
 </div>

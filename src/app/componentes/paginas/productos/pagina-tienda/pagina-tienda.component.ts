@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaginaTiendaComponent implements OnInit {
 
+  ordenActual: string = "precioDescendente";
+  categoriaActual: string = "todos"
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  actualizarOrden(orden: string){
+    this.ordenActual = orden;
+  }
+
+  actualizarCategoria(categoria: string) {
+    this.categoriaActual = categoria;
   }
 
 }

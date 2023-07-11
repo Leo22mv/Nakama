@@ -1,23 +1,26 @@
 <div class="row">
     <div class="col-sm-2"></div>
     <div class="col-sm">
-        <div class="form-floating mb-3">
-            <input [(ngModel)]="email" type="text" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com">
-            <label for="floatingInput">Nombre de usuario o dirección de correo electrónico</label>
-          </div>
-          <div class="form-floating">
-            <input [(ngModel)]="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Contraseña</label>
-          </div>
-          <div *ngIf="error" class="alert alert-danger">
-            <!-- <div class="alert alert-danger"> -->
-            Error
-          </div>
-          <div class="contenedor">
-          <button type="submit" [ngClass]="boton" (click)="login()">
-            Iniciar sesión
-          </button>
-            </div>
-        </div>
+      <div class="form-floating mb-3">
+        <input [(ngModel)]="email" type="text" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com">
+        <label for="floatingInput">Nombre de usuario o dirección de correo electrónico</label>
+      </div>
+
+      <div class="form-floating">
+        <input [(ngModel)]="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Contraseña</label>
+      </div>
+      
+      <div class="contenedor">
+        <button type="submit" [ngClass]="boton" (click)="onSubmit()">
+          Iniciar sesión
+        </button>
+      </div>
+          
+      <div *ngIf="error" class="alert alert-danger">
+        Error
+      </div>
+    </div>
+    
     <div class="col-sm-2"></div>
 </div>

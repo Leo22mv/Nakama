@@ -40,9 +40,10 @@ export class AuthService {
           this.router.navigate(["tienda"])
             localStorage.setItem("token", "1")
         },
-        error => {
-          console.log(error)
-          if (error.status==200) {
+        (err: any) => {
+          // console.log(err)
+          if (err.status==200) {
+            this.error = false;
             this.router.navigate(["tienda"])
             localStorage.setItem("token", "1")
             // respuesta = false
@@ -52,11 +53,16 @@ export class AuthService {
           }
         }
       )
+      // this.error = true;
       // let respuesta: boolean;
       // return respuesta;
   }
 
   listaCarrito: IProducto[] = [
+    
+  ];
+
+  listaProductos: IProducto[] = [
     
   ];
 

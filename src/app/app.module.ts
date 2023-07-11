@@ -25,7 +25,7 @@ import { RegisterComponent } from './componentes/paginas/register/register.compo
 import { RegisterFormComponent } from './componentes/paginas/register/register-form/register-form.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { TituloRComponent } from './componentes/paginas/register/titulo-r/titulo-r.component';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule } from '@angular/forms';
 import { CarritoComponent } from './componentes/paginas/carrito/carrito.component';
 import { IsoComponent } from './componentes/header/iso/iso.component';
 import { LogoComponent } from './componentes/header/logo/logo.component';
@@ -43,6 +43,7 @@ import { TituloCarritoComponent } from './componentes/paginas/carrito/pagina-car
 import { CheckoutComponent } from './componentes/paginas/checkout/checkout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { APerfilComponent } from './componentes/header/a-perfil/a-perfil.component';
+import { PerfilComponent } from './componentes/paginas/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -84,13 +85,15 @@ import { APerfilComponent } from './componentes/header/a-perfil/a-perfil.compone
     ItemComponent,
     TituloCarritoComponent,
     CheckoutComponent,
-    APerfilComponent
+    APerfilComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule
+    // FormBuilder
   ],
   providers: [],
   bootstrap: [AppComponent]

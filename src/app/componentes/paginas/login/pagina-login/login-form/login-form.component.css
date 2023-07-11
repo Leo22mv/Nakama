@@ -8,3 +8,6 @@
 button, input {
     box-shadow: 4px 4px 4px white;
 }
+.alert {
+    margin: 15px;
+}

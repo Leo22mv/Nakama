@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 
 @Component({
@@ -8,15 +8,16 @@ import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 })
 export class CategoriasComponent implements OnInit, OnChanges {
 
-  categoriaTodas: string | undefined;
+  categoriaActiva: string = "todas";
 
-  categoriaRopa: string | undefined;
+  // claseCategoriaInactiva: string = "dropdown-item";
 
-  categoriaActiva: string | undefined;
+  // claseCategoriaActiva: string = "dropdown-item active";
 
-  claseCategoriaInactiva: string = "dropdown-item";
+  categoriaTodas: string = "dropdown-item active";
+  categoriaRopa: string = "dropdown-item";
 
-  claseCategoriaActiva: string = "dropdown-item active";
+  @Output() ordenarEmit: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(private router: Router, private route: ActivatedRoute) {
     
@@ -24,15 +25,15 @@ export class CategoriasComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
 
-    this.route.queryParams.subscribe(params => this.categoriaActiva = params['categoria']);
+    // this.route.queryParams.subscribe(params => this.categoriaActiva = params['categoria']);
 
-    if (this.categoriaActiva=="ropa") {
-      this.categoriaRopa = this.claseCategoriaActiva;
-      this.categoriaTodas = this.claseCategoriaInactiva;
-    } else {
-      this.categoriaRopa = this.claseCategoriaInactiva;
-      this.categoriaTodas = this.claseCategoriaActiva;
-    }
+    // if (this.categoriaActiva=="ropa") {
+    //   this.categoriaRopa = this.claseCategoriaActiva;
+    //   this.categoriaTodas = this.claseCategoriaInactiva;
+    // } else {
+    //   this.categoriaRopa = this.claseCategoriaInactiva;
+    //   this.categoriaTodas = this.claseCategoriaActiva;
+    // }
 
   }
 
@@ -40,26 +41,34 @@ export class CategoriasComponent implements OnInit, OnChanges {
     
   }
 
-  filtrarCategoria() {
-    let navigationExtras: NavigationExtras = {
-      queryParams: {
-        categoria: "ropa"
-      }
-    }
+  filtrarCategoria(origen: string) {
+    // let navigationExtras: NavigationExtras = {
+    //   queryParams: {
+    //     categoria: "ropa"
+    //   }
+    // }
 
-    this.router.navigate(["/tienda"], navigationExtras)
+    // this.router.navigate(["/tienda"], navigationExtras)
+    if (origen!=this.categoriaActiva) {
+      this.actualizarCategoria(origen);
+      this.ordenarEmit.emit(this.categoriaActiva);
+    }
   }
 
-  actualizarCategoria() {
-    this.route.queryParams.subscribe(params => this.categoriaActiva = params['categoria']);
+  actualizarCategoria(origen: string) {
+    // if (origen=="todas") {
+        if (this.categoriaTodas=="dropdown-item active") {
+          this.categoriaTodas = "dropdown-item";
+          this.categoriaRopa = "dropdown-item active";
+        } else {
+          this.categoriaTodas = "dropdown-item active";
+          this.categoriaRopa = "dropdown-item";
+        }
+        this.categoriaActiva = origen;
+      // } else {
 
-    if (this.categoriaActiva=="ropa") {
-      this.categoriaRopa = this.claseCategoriaActiva;
-      this.categoriaTodas = this.claseCategoriaInactiva;
-    } else {
-      this.categoriaRopa = this.claseCategoriaInactiva;
-      this.categoriaTodas = this.claseCategoriaActiva;
-    }
+      // }
+    // }
   }
 
 }

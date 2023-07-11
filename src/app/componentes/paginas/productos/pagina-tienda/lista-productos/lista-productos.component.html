@@ -1,57 +1,61 @@
-<div *ngIf="params==undefined&&params2==undefined">
+<!-- <div *ngIf="params==undefined&&params2==undefined"> -->
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 row-cols-xl-5 g-5" id="lista">
       <!-- <div class="row row-cols-1 row-cols-md-2 row-cols-xl-5 g-5" id="lista"> -->
-      <div *ngFor="let producto of listaProductos">
-        <app-producto [producto]="producto" (evento)="mostrarSucces(producto)"></app-producto>
+      <div *ngFor="let producto of listaProductosOrdenada">
+        <app-producto [producto]="producto"></app-producto>
         <div *ngIf="producto.activo">
           <p class="p">Agregado correctamente</p>
           <!-- <p>Ir al carrito</p> -->
         </div>
       </div>
     </div>
-</div>
+<!-- </div> -->
 
+
+
+
+<!-- 
 <div *ngIf="params=='ropa'">
-  <!-- <div class="row row-cols-1 row-cols-md-2 row-cols-xl-5 g-5" id="lista"> -->
+  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-5 g-5" id="lista">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 row-cols-xl-5 g-5" id="lista">
     <div *ngFor="let producto of listaProductos">
-      <!-- <div *ngIf="producto.categoria=='ropa'"> -->
+      <div *ngIf="producto.categoria=='ropa'">
         <app-producto  *ngIf="producto.categoria=='ropa'" [producto]="producto"></app-producto>
         <div *ngIf="producto.activo">
           <p class="p">Agregado correctamente</p>
-          <!-- <p>Ir al carrito</p> -->
+          <p>Ir al carrito</p>
         </div>
-      <!-- </div> -->
+      </div>
     </div>
   </div>
 </div>
 
 <div *ngIf="params2=='Naruto'">
-  <!-- <div class="row row-cols-1 row-cols-md-2 row-cols-xl-5 g-5" id="lista"> -->
+  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-5 g-5" id="lista">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 row-cols-xl-5 g-5" id="lista">
     <div *ngFor="let producto of listaProductos">
-      <!-- <div> -->
+      <div>
         <app-producto  *ngIf="producto.serie=='Naruto'" [producto]="producto"></app-producto>
         <div *ngIf="producto.activo">
           <p class="p">Agregado correctamente</p>
-          <!-- <p>Ir al carrito</p> -->
+          <p>Ir al carrito</p>
         </div>
-      <!-- </div> -->
+      </div>
     </div>
   </div>
 </div>
 
 <div *ngIf="params2=='Attack on titan (Shingeki no kyojin)'">
-  <!-- <div class="row row-cols-1 row-cols-md-2 row-cols-xl-5 g-5" id="lista"> -->
+  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-5 g-5" id="lista">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 row-cols-xl-5 g-5" id="lista">
     <div *ngFor="let producto of listaProductos">
-      <!-- <div> -->
+      <div>
         <app-producto *ngIf="producto.serie=='Attack on titan (Shingeki no kyojin)'" [producto]="producto"></app-producto>
         <div *ngIf="producto.activo">
           <p class="p">Agregado correctamente</p>
-          <!-- <p>Ir al carrito</p> -->
+          <p>Ir al carrito</p>
         </div>
-      <!-- </div> -->
+      </div>
     </div>
   </div>
-</div>
+</div> -->
