@@ -16,6 +16,7 @@ export class CategoriasComponent implements OnInit, OnChanges {
 
   categoriaTodas: string = "dropdown-item active";
   categoriaRopa: string = "dropdown-item";
+  categoriaOtros: string = "dropdown-item";
 
   @Output() ordenarEmit: EventEmitter<string> = new EventEmitter<string>();
 
@@ -51,24 +52,36 @@ export class CategoriasComponent implements OnInit, OnChanges {
     // this.router.navigate(["/tienda"], navigationExtras)
     if (origen!=this.categoriaActiva) {
       this.actualizarCategoria(origen);
+      this.categoriaActiva = origen;
       this.ordenarEmit.emit(this.categoriaActiva);
     }
   }
 
   actualizarCategoria(origen: string) {
-    // if (origen=="todas") {
-        if (this.categoriaTodas=="dropdown-item active") {
+    switch (origen) {
+        case "ropa":
           this.categoriaTodas = "dropdown-item";
           this.categoriaRopa = "dropdown-item active";
-        } else {
+          this.categoriaOtros = "dropdown-item";
+        break
+
+        case "todas":
           this.categoriaTodas = "dropdown-item active";
           this.categoriaRopa = "dropdown-item";
-        }
+          this.categoriaOtros = "dropdown-item";
+        break
+
+        case "otros":
+          this.categoriaTodas = "dropdown-item";
+          this.categoriaRopa = "dropdown-item";
+          this.categoriaOtros = "dropdown-item active";
+        break
+
         this.categoriaActiva = origen;
       // } else {
 
       // }
-    // }
+    }
   }
 
 }

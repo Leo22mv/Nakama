@@ -42,7 +42,7 @@ export class ListaProductosComponent implements OnInit, OnChanges {
       descripcion: "Aca iría la descripción del producto.",
       stock: 1,
       serie: "",
-      categoria: "",
+      categoria: "otros",
       activo: false,
       cantidad: 1
     },
@@ -54,7 +54,7 @@ export class ListaProductosComponent implements OnInit, OnChanges {
       descripcion: "Aca iría la descripción del producto.",
       stock: 0,
       serie: "",
-      categoria: "",
+      categoria: "otros",
       activo: false,
       cantidad: 1
     }
@@ -128,6 +128,11 @@ export class ListaProductosComponent implements OnInit, OnChanges {
 
       case "ropa":
         this.listaProductos = this.listaProductosTotal.filter(producto => producto.categoria=="ropa")
+        this.listaProductosOrdenada = this.listaProductos
+      break
+
+      case "otros":
+        this.listaProductos = this.listaProductosTotal.filter(producto => producto.categoria=="otros")
         this.listaProductosOrdenada = this.listaProductos
       break
     }
