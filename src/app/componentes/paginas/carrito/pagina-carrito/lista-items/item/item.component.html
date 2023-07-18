@@ -17,7 +17,8 @@
                   <p class="card-text"><small class="text-muted">Categoría: {{ item.categoria }}</small></p>
                 </div>
                 <div class="card-footer">
-                    
+                  <label for="cant">Cantidad:</label>
+                  <input [(ngModel)]="item.cantidad" type="number" id="cant" [value]="item.cantidad" min="1">
                 </div>
               </div>
             </div>

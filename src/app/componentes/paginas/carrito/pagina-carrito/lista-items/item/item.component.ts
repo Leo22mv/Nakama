@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { IProducto } from 'src/app/modelos/producto-interface';
 import { AuthService } from 'src/app/servicios/auth.service';
 
@@ -7,7 +7,7 @@ import { AuthService } from 'src/app/servicios/auth.service';
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.css']
 })
-export class ItemComponent implements OnInit {
+export class ItemComponent implements OnInit, OnChanges {
 
   @Input() index: number = -1;
 
@@ -27,6 +27,9 @@ export class ItemComponent implements OnInit {
   @Output() totalEmit: EventEmitter<number> = new EventEmitter<number>();
 
   constructor(private auth: AuthService) { }
+  ngOnChanges(changes: SimpleChanges): void {
+    
+  }
 
   ngOnInit(): void {
   }
@@ -38,5 +41,6 @@ export class ItemComponent implements OnInit {
 
     this.totalEmit.emit(this.auth.total);
   }
+
 
 }

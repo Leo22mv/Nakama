@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   uri = "https://nakama-0.azurewebsites.net";
+  // uri = "http://localhost:8080";
+
   error = false;
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -46,6 +48,9 @@ export class AuthService {
             this.error = false;
             this.router.navigate(["tienda"])
             localStorage.setItem("token", "1")
+            if (username=="Kbe") {
+              localStorage.setItem("admin", "1")
+            }
             // respuesta = false
           } else {
             this.error = true;
@@ -92,7 +97,7 @@ export class AuthService {
   sumarTotal(lista: IProducto[]) {
     let totall: number = 0;
     for (let item of lista) {
-      totall = totall + item.precio;
+      totall = totall + (item.precio*item.cantidad);
     }
     this.total = totall
   }

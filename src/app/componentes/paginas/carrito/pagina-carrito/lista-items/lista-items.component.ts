@@ -16,7 +16,7 @@ export class ListaItemsComponent implements OnInit, OnChanges {
   constructor(private auth: AuthService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    
+    this.actualizarTotal()
   }
 
   ngOnInit(): void {

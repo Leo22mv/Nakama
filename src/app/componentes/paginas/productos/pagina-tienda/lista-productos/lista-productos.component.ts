@@ -1,6 +1,10 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Params, Router } from '@angular/router';
 import { IProducto } from '../../../../../modelos/producto-interface';
+import { ProductosService } from 'src/app/servicios/productos.service';
+import { ListaProductosService } from 'src/app/servicios/lista-productos.service';
+import { HttpClient } from '@angular/common/http';
+import { map, toArray } from 'rxjs';
 
 @Component({
   selector: 'app-lista-productos',
@@ -9,60 +13,65 @@ import { IProducto } from '../../../../../modelos/producto-interface';
 })
 export class ListaProductosComponent implements OnInit, OnChanges {
 
-  listaProductosTotal: IProducto[] = [
-    {
-    id: 1,
-    urlFoto: "../../../../../../assets/img/capa-akatsuki2.png",
-    precio: 5000,
-    nombre: "Capa de Akatsuki",
-    descripcion: "Atuendo característico de la organización criminal mas famosa del mundo.",
-    stock: 1,
-    serie: "Naruto",
-    categoria: "ropa",
-    activo: false,
-    cantidad: 1
-    },
-    {
-      id: 2,
-      urlFoto: "../../../../../../assets/img/capamikasa2.png",
-      precio: 3000,
-      nombre: "Capa del cuerpo de exploración",
-      descripcion: "Uniforme del cuerpo encargado de explorar fuera de las murallas y matar titanes.",
-      stock: 1,
-      serie: "Attack on titan (Shingeki no kyojin)",
-      categoria: "ropa",
-      activo: false,
-      cantidad: 1
-    },
-    {
-      id: 3,
-      urlFoto: "../../../../../../assets/img/isotipo.png",
-      precio: 1,
-      nombre: "Producto",
-      descripcion: "Aca iría la descripción del producto.",
-      stock: 1,
-      serie: "",
-      categoria: "otros",
-      activo: false,
-      cantidad: 1
-    },
-    {
-      id: 4,
-      urlFoto: "../../../../../../assets/img/isotipo.png",
-      precio: 50,
-      nombre: "Producto sin stock",
-      descripcion: "Aca iría la descripción del producto.",
-      stock: 0,
-      serie: "",
-      categoria: "otros",
-      activo: false,
-      cantidad: 1
-    }
-  ]
+  filtroActivo: boolean = false;
 
-  listaProductos: IProducto[] = this.listaProductosTotal
+  // @Input() listaProductosTotal: any[] = this.listaProdService.listaProductosTotal;
+  listaProductosTotal: any[] = [];
+  // [
+  // listaProductosTotal: any = [
+    // {
+    // id: 1,
+    // urlFoto: "../../../../../../assets/img/capa-akatsuki2.png",
+    // precio: 5000,
+    // nombre: "Capa de Akatsuki",
+    // descripcion: "Atuendo característico de la organización criminal mas famosa del mundo.",
+    // stock: 1,
+    // serie: "Naruto",
+    // categoria: "ropa",
+    // activo: false,
+    // cantidad: 1
+    // },
+    // {
+    //   id: 2,
+    //   urlFoto: "../../../../../../assets/img/capamikasa2.png",
+    //   precio: 3000,
+    //   nombre: "Capa del cuerpo de exploración",
+    //   descripcion: "Uniforme del cuerpo encargado de explorar fuera de las murallas y matar titanes.",
+    //   stock: 1,
+    //   serie: "Attack on titan (Shingeki no kyojin)",
+    //   categoria: "ropa",
+    //   activo: false,
+    //   cantidad: 1
+    // },
+    // {
+    //   id: 3,
+    //   urlFoto: "../../../../../../assets/img/isotipo.png",
+    //   precio: 1,
+    //   nombre: "Producto",
+    //   descripcion: "Aca iría la descripción del producto.",
+    //   stock: 1,
+    //   serie: "",
+    //   categoria: "otros",
+    //   activo: false,
+    //   cantidad: 1
+    // },
+    // {
+    //   id: 4,
+    //   urlFoto: "../../../../../../assets/img/isotipo.png",
+    //   precio: 50,
+    //   nombre: "Producto sin stock",
+    //   descripcion: "Aca iría la descripción del producto.",
+    //   stock: 0,
+    //   serie: "",
+    //   categoria: "otros",
+    //   activo: false,
+    //   cantidad: 1
+    // }
+  // ]
 
-  listaProductosOrdenada: IProducto[] = this.listaProductos
+  listaProductos: any[] = this.listaProductosTotal
+
+  listaProductosOrdenada: any[] = this.listaProductos
 
   agregado: boolean = false;
 
@@ -72,17 +81,47 @@ export class ListaProductosComponent implements OnInit, OnChanges {
   @Input() ordenActual: string | undefined;
   @Input() categoriaActual: string | undefined;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private prodServ: ProductosService, private listaProdService: ListaProductosService, private http: HttpClient) {
+    // this.getProductos();
+    this.actualizarCategoria();
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
+    // this.getProductos();
     this.actualizarCategoria();
     this.ordenar();
   }
 
   ngOnInit(): void {
 
+    this.filtroActivo = false;
+
     // this.route.queryParams.subscribe(params => this.params = params['categoria']);
     // this.route.queryParams.subscribe(params => this.params2 = params['serie']);
+    this.getProductos();
+    // this.http.get<any[]>("http://localhost:8080/productos").subscribe(data => {
+    //   this.listaProductosTotal = data as IProducto[];
+    // });
 
+    // this.listaProductosOrdenada = this.listaProductosTotal;
+
+  }
+
+  getProductos() {
+    this.prodServ.obtener().subscribe(res=> {
+      this.listaProductosTotal = res;
+      this.listaProductosOrdenada = res;
+    })
+
+    // this.prodServ.obtener().subscribe(
+    //   data => {
+    //     this.listaProductosTotal = data[0];
+    //     // console.log(data)
+    //   },
+    //   error => {
+    //     alert("Error")
+    //   }
+    // )
   }
 
 
@@ -117,6 +156,7 @@ export class ListaProductosComponent implements OnInit, OnChanges {
         })
       break
     }
+    this.filtroActivo = true;
   }
 
   actualizarCategoria() {
@@ -136,6 +176,7 @@ export class ListaProductosComponent implements OnInit, OnChanges {
         this.listaProductosOrdenada = this.listaProductos
       break
     }
+    this.filtroActivo = true;
   }
 
 }

@@ -44,6 +44,9 @@ import { CheckoutComponent } from './componentes/paginas/checkout/checkout.compo
 import { HttpClientModule } from '@angular/common/http';
 import { APerfilComponent } from './componentes/header/a-perfil/a-perfil.component';
 import { PerfilComponent } from './componentes/paginas/perfil/perfil.component';
+import { AAdminComponent } from './componentes/header/a-admin/a-admin.component';
+import { AdminComponent } from './componentes/paginas/admin/admin.component';
+import { AgregarProductoComponent } from './componentes/paginas/admin/agregar-producto/agregar-producto.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +89,10 @@ import { PerfilComponent } from './componentes/paginas/perfil/perfil.component';
     TituloCarritoComponent,
     CheckoutComponent,
     APerfilComponent,
-    PerfilComponent
+    PerfilComponent,
+    AAdminComponent,
+    AdminComponent,
+    AgregarProductoComponent
   ],
   imports: [
     BrowserModule,

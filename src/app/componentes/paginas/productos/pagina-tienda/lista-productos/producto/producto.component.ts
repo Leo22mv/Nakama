@@ -31,10 +31,14 @@ export class ProductoComponent implements OnInit {
   constructor(private auth: AuthService, private router: Router, private prserv: ProductosService) { }
 
   ngOnInit(): void {
+    // console.log(this.producto)
   }
 
   agregarAlCarrito(producto: IProducto) {
     if (localStorage.getItem("token")) {
+      if(!producto.cantidad) {
+        producto.cantidad = 1;
+      }
       this.auth.listaCarrito.push(producto);
     } else {
       this.router.navigate(["/login"])

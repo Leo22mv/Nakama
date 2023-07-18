@@ -22,6 +22,7 @@ export class LogoutComponent implements OnInit {
 
   logout() {
     localStorage.removeItem("token");
+    localStorage.removeItem("admin");
   }
 
 }

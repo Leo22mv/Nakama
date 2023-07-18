@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductosService } from 'src/app/servicios/productos.service';
 
 @Component({
   selector: 'app-pagina-tienda',
@@ -8,11 +9,27 @@ import { Component, OnInit } from '@angular/core';
 export class PaginaTiendaComponent implements OnInit {
 
   ordenActual: string = "precioDescendente";
-  categoriaActual: string = "todos"
+  categoriaActual: string = "todos";
+  listaProductosTotal: any[] = []
 
-  constructor() { }
+
+  constructor(private prodServ: ProductosService) {
+    this.getProductos();
+  }
 
   ngOnInit(): void {
+  }
+
+  getProductos() {
+    this.prodServ.obtener().subscribe(
+      data => {
+        this.listaProductosTotal = data[0];
+        // console.log(data)
+      },
+      error => {
+        alert("Error")
+      }
+    )
   }
 
   actualizarOrden(orden: string){

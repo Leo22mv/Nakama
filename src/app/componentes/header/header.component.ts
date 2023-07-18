@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   logueado: string | null = localStorage.getItem("token");
+  admin: string | null = localStorage.getItem("admin");
 
   constructor() { }
 
