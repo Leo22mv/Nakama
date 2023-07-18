@@ -15,7 +15,7 @@ export class ListaProductosService {
         // console.log(data)
       },
       error => {
-        alert("Error")
+        console.log(error)
       }
     )
   }
