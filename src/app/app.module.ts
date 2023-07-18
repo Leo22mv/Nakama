@@ -47,6 +47,7 @@ import { PerfilComponent } from './componentes/paginas/perfil/perfil.component';
 import { AAdminComponent } from './componentes/header/a-admin/a-admin.component';
 import { AdminComponent } from './componentes/paginas/admin/admin.component';
 import { AgregarProductoComponent } from './componentes/paginas/admin/agregar-producto/agregar-producto.component';
+import { EliminarProductoComponent } from './componentes/paginas/admin/eliminar-producto/eliminar-producto.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import { AgregarProductoComponent } from './componentes/paginas/admin/agregar-pr
     PerfilComponent,
     AAdminComponent,
     AdminComponent,
-    AgregarProductoComponent
+    AgregarProductoComponent,
+    EliminarProductoComponent
   ],
   imports: [
     BrowserModule,

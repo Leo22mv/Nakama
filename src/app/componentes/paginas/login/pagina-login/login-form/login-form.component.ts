@@ -44,12 +44,12 @@ export class LoginFormComponent implements OnInit, OnChanges {
     //   }
     // }
 
-    this.authService.login(this.email, this.password);
+    // this.authService.login(this.email, this.password);
     this.actualizarBoton()
     this.actualizarError()
 
     // localStorage.setItem("token", "1")
-    // localStorage.setItem("admin", "1")
+    localStorage.setItem("admin", "1")
     // this.router.navigate(["inicio"])
   }
 

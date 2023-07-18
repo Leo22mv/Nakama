@@ -8,10 +8,12 @@ import { ProductosComponent } from './componentes/paginas/productos/productos.co
 import { RegisterComponent } from './componentes/paginas/register/register.component';
 import { AdminComponent } from './componentes/paginas/admin/admin.component';
 import { AgregarProductoComponent } from './componentes/paginas/admin/agregar-producto/agregar-producto.component';
+import { EliminarProductoComponent } from './componentes/paginas/admin/eliminar-producto/eliminar-producto.component';
 
 const routes: Routes = [
   {path: "admin", component: AdminComponent, children: [
-    {path:"agregar", component: AgregarProductoComponent}
+    {path:"agregar", component: AgregarProductoComponent},
+    {path:"eliminar", component: EliminarProductoComponent}
   ]},
   {path: "", redirectTo: "/inicio", pathMatch: "full"},
   {path: "inicio", component: InicioComponent},

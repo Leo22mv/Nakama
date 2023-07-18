@@ -1,0 +1,9 @@
+<div *ngFor="let producto of listaProductos">
+    <h1>Id: {{ producto.id }}, nombre: {{ producto.nombre }}</h1>
+</div>
+<div class="form">
+    <label class="form-label" id="id">ID:</label>
+    <input type="number" class="form-control" id="id" [(ngModel)]="id">
+    <input class="btn btn-secondary" type="submit" value="Eliminar" (click)="onSubmit()">
+    <!-- <button class="btn btn-secondary" (click)="onSubmit()"></button> -->
+</div>
