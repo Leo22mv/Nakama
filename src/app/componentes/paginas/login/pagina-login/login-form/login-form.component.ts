@@ -18,7 +18,9 @@ export class LoginFormComponent implements OnInit, OnChanges {
   error: boolean = false;
   codigo: any = 0;
 
-  boton: string = "btn btn-dark btn-lg"
+  boton: string = "btn btn-dark btn-lg";
+
+  errorValidacion = false;
 
   // constructor(private auth: AuthService, private router: Router, private formBuilder: FormBuilder) {
   constructor(private authService: AuthService, private router: Router) {
@@ -37,28 +39,35 @@ export class LoginFormComponent implements OnInit, OnChanges {
   }
 
   onSubmit() {
-    // for (let usuario of this.auth.listaUsuarios) {
-    //   if ((usuario.email==this.email||usuario.username==this.email)&&usuario.password==this.password) {
-    //     localStorage.setItem("token", "1");
-    //     this.router.navigate(["/inicio"]);
-    //   } else {
-    //     this.error = true;
-    //   }
-    // }
+    if (this.password.length>0&&this.email.length>0) {
+      // for (let usuario of this.auth.listaUsuarios) {
+      //   if ((usuario.email==this.email||usuario.username==this.email)&&usuario.password==this.password) {
+      //     localStorage.setItem("token", "1");
+      //     this.router.navigate(["/inicio"]);
+      //   } else {
+      //     this.error = true;
+      //   }
+      // }
 
-    this.authService.login(this.email, this.password);
+      this.authService.login(this.email, this.password);
 
-    this.codigo = this.authService.codigo
+      this.codigo = this.authService.codigo
 
-    // this.actualizarBoton()
-    
-    console.log(this.codigo);
+      // this.actualizarBoton()
+      
+      // console.log(this.codigo);
 
-    // this.actualizarError()
+      // this.actualizarError()
 
-    // localStorage.setItem("token", "1")
-    // localStorage.setItem("admin", "1")
-    // this.router.navigate(["inicio"])
+      // localStorage.setItem("token", "1")
+      // localStorage.setItem("admin", "1")
+      // this.router.navigate(["inicio"])
+      this.errorValidacion = false
+      this.error = false;
+      // this.codigo = 0;
+    } else {
+      this.errorValidacion = true
+    }
   }
 
   actualizarBoton() {

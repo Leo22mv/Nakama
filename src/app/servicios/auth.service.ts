@@ -16,7 +16,8 @@ export class AuthService {
   uri = "https://nakama-b-n.onrender.com";
 
   error = false;
-  codigo: any;
+  errorRegister= false;
+  codigo: any = 0;
   user: any;
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -29,8 +30,9 @@ export class AuthService {
         // alert("error")
         if (err.status==200) {
           this.router.navigate(["login"]);
-        } else {
-          this.error = true;
+        } else if (err.status==401){
+          this.errorRegister = true;
+          this.codigo = 401
         }
         // console.log(err)
       })

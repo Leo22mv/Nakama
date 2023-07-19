@@ -17,6 +17,9 @@ export class RegisterFormComponent implements OnInit {
   boton: string = "btn btn-dark btn-lg"
 
   error: boolean = false
+  errorValidacion: boolean = false
+
+  codigo: number = 0;
 
   // registroForm: FormGroup;
 
@@ -31,36 +34,45 @@ export class RegisterFormComponent implements OnInit {
   constructor (private authService: AuthService) {}
 
   onSubmit() {
-    this.authService.register(this.email, this.username, this.password);
-    
-    // if (this.registroForm.invalid) {
-  //     return;
-  //   }
+    if (this.username.length>0&&this.password.length>0&&this.email.length>0) {
+      this.authService.register(this.email, this.username, this.password)
+      this.errorValidacion = false;
+      // if (this.registroForm.invalid) {
+    //     return;
+    //   }
 
-  //   const formData = this.registroForm.value;
+    //   const formData = this.registroForm.value;
 
-  //   this.http.post('/api/registro', formData)
-  //     .subscribe(
-  //       (response) => {
-  //         // Manejar la respuesta del servidor
-  //       },
-  //       (error) => {
-  //         // Manejar errores de la solicitud
-  //       }
-  //     );
-    // this.actualizarBoton()
-    this.actualizarError()
+    //   this.http.post('/api/registro', formData)
+    //     .subscribe(
+    //       (response) => {
+    //         // Manejar la respuesta del servidor
+    //       },
+    //       (error) => {
+    //         // Manejar errores de la solicitud
+    //       }
+    //     );
+      // this.actualizarBoton()
+      this.actualizarError()
+      this.codigo = this.authService.codigo;
+      console.log(this.codigo)
+    } else {
+      this.errorValidacion = true;
+    }
   }
 
   actualizarBoton() {
-    this.boton = "btn btn-success btn-lg"
-    setTimeout(() => {
-      this.boton = "btn btn-dark btn-lg"
-    }, 2000);
+    this.boton = "btn btn-dark btn-lg disabled"
+    // setTimeout(() => {
+    //   this.boton = "btn btn-dark btn-lg"
+    // }, 2000);
   }
 
   actualizarError() {
-    this.error = this.authService.error
+    this.error = this.authService.errorRegister
+    if (this.error) {
+      this.boton = "btn btn-dark btn-lg";
+    }
   }
 
   // id: number | undefined;

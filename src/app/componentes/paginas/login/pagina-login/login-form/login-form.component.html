@@ -17,11 +17,14 @@
         </button>
       </div>
         
-      <div *ngIf="codigo==401" class="alert alert-danger">
+      <div *ngIf="codigo==401&&!errorValidacion" class="alert alert-danger">
         Nombre de usuario y/o contraseña incorrectos.
       </div>
-      <div *ngIf="codigo==500" class="alert alert-danger">
+      <div *ngIf="codigo==500&&!errorValidacion" class="alert alert-danger">
         Error en el servidor.
+      </div>
+      <div *ngIf="errorValidacion" class="alert alert-danger">
+        Complete todos los campos para continuar
       </div>
     </div>
     

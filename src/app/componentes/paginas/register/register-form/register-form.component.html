@@ -30,8 +30,14 @@
         </button>
         </div>
 
-        <div *ngIf="error" class="alert alert-danger">            
+        <div *ngIf="codigo!=0&&codigo!=401" class="alert alert-danger">            
           Error
+        </div>
+        <div *ngIf="errorValidacion" class="alert alert-danger">            
+          Complete todos los campos para continuar
+        </div>
+        <div *ngIf="codigo==401&&!errorValidacion" class="alert alert-danger">
+          Email o nombre de usuario existentes
         </div>
       <!-- </form> -->
           <!-- <div *ngIf="errorActual!==undefined" class="alert alert-success"> -->
