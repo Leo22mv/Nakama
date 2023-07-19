@@ -1,0 +1,7 @@
+<div class="container">
+    <ul>
+        <div *ngFor="let compra of listaCompras">
+            <li>Código de compra: {{ compra.id_compra }}, Código de usuario: {{ compra.id_user }}, Total: ${{ compra.total }}</li>
+        </div>
+    </ul>
+</div>

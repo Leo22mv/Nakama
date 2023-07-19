@@ -51,6 +51,7 @@ import { EliminarProductoComponent } from './componentes/paginas/admin/eliminar-
 import { PaginaPerfilComponent } from './componentes/paginas/perfil/pagina-perfil/pagina-perfil.component';
 import { ComprasComponent } from './componentes/paginas/perfil/pagina-perfil/compras/compras.component';
 import { ConfirmacionComponent } from './componentes/paginas/confirmacion/confirmacion.component';
+import { VerComprasComponent } from './componentes/paginas/admin/ver-compras/ver-compras.component';
 
 @NgModule({
   declarations: [
@@ -100,7 +101,8 @@ import { ConfirmacionComponent } from './componentes/paginas/confirmacion/confir
     EliminarProductoComponent,
     PaginaPerfilComponent,
     ComprasComponent,
-    ConfirmacionComponent
+    ConfirmacionComponent,
+    VerComprasComponent
   ],
   imports: [
     BrowserModule,
