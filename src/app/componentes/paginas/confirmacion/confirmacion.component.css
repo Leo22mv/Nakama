@@ -1,0 +1,11 @@
+.alert {
+    text-align: center;
+    margin: 30px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+}
+.btn {
+    margin-bottom: 15px;
+}

@@ -12,7 +12,7 @@
 </div>
 
 <div class="container">
-    <button class="btn btn-dark btn-lg" (click)="confirmar()">Confirmar compra</button>
+    <button [ngClass]="btn" (click)="confirmar()">Confirmar compra</button>
 </div>
 <div class="container">
     <button class="btn btn-dark" routerLink="/carrito">Volver al carrito</button>

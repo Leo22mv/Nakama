@@ -39,6 +39,8 @@ export class CheckoutComponent implements OnInit {
   details: any[] = [];
   id: any = "";
 
+  btn: string = "btn btn-dark btn-lg";
+
   constructor(private lpServ: ListaProductosService, private compraServ: CompraService, private prodServ: ProductosService) { }
 
   ngOnInit(): void {
@@ -60,6 +62,10 @@ export class CheckoutComponent implements OnInit {
   }
 
   confirmar() {
-    this.compraServ.compra(this.id, this.total, this.details);
+    if (this.total>0){
+      this.compraServ.compra(this.id, this.total, this.details);
+      this.btn = "btn btn-dark btn-lg disabled";
+      this.lpServ.listaCarrito = [];
+    }
   }
 }

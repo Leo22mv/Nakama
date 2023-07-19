@@ -11,8 +11,10 @@ import { AgregarProductoComponent } from './componentes/paginas/admin/agregar-pr
 import { EliminarProductoComponent } from './componentes/paginas/admin/eliminar-producto/eliminar-producto.component';
 import { PerfilComponent } from './componentes/paginas/perfil/perfil.component';
 import { ComprasComponent } from './componentes/paginas/perfil/pagina-perfil/compras/compras.component';
+import { ConfirmacionComponent } from './componentes/paginas/confirmacion/confirmacion.component';
 
 const routes: Routes = [
+  {path: "confirmacion", component: ConfirmacionComponent},
   {path: "perfil", component: PerfilComponent, children: [
     {path:"compras", component:ComprasComponent}
   ]},
