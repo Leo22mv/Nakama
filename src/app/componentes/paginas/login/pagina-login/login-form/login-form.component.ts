@@ -16,6 +16,7 @@ export class LoginFormComponent implements OnInit, OnChanges {
   password: string = "";
 
   error: boolean = false;
+  codigo: any = 0;
 
   boton: string = "btn btn-dark btn-lg"
 
@@ -28,10 +29,11 @@ export class LoginFormComponent implements OnInit, OnChanges {
    }
 
   ngOnChanges(changes: SimpleChanges): void {
-    
+    console.log(this.codigo);    
   }
 
   ngOnInit(): void {
+    console.log(this.codigo);
   }
 
   onSubmit() {
@@ -45,8 +47,14 @@ export class LoginFormComponent implements OnInit, OnChanges {
     // }
 
     this.authService.login(this.email, this.password);
-    this.actualizarBoton()
-    this.actualizarError()
+
+    this.codigo = this.authService.codigo
+
+    // this.actualizarBoton()
+    
+    console.log(this.codigo);
+
+    // this.actualizarError()
 
     // localStorage.setItem("token", "1")
     // localStorage.setItem("admin", "1")
@@ -54,16 +62,23 @@ export class LoginFormComponent implements OnInit, OnChanges {
   }
 
   actualizarBoton() {
-    this.boton = "btn btn-success btn-lg"
-    setTimeout(() => {
+    if (this.boton=="btn btn-dark btn-lg disabled") {
       this.boton = "btn btn-dark btn-lg"
-    }, 2000);
+    } else {
+      this.boton = "btn btn-dark btn-lg disabled"
+    }
+    // setTimeout(() => {
+    //   this.boton = "btn btn-dark btn-lg"
+    // }, 2000);
   // this.boton = this.boton + " disabled"
   }
 
   actualizarError() {
-    this.error = this.authService.error;
+    // this.error = this.authService.error;
     // this.boton = "btn btn-dark btn-lg";
     // alert("das")
+    if (this.codigo==401) {
+      this.actualizarBoton()
+    }
   }
 }

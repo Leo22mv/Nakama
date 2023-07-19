@@ -16,7 +16,10 @@
                       <h2 class="card-text">$ {{ total }}</h2> 
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn-outline-light" routerLink="/checkout">Continuar</button>
+                        <button class="btn btn-outline-light" (click)="submit()" routerLink="/checkout">Continuar al checkout</button>
+                        <button class="btn btn-outline-light btn-lg" routerLink="/tienda">
+                            Seguir comprando
+                        </button>
                     </div>
                   </div>
                 </div>

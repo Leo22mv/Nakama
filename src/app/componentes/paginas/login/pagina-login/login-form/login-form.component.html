@@ -3,7 +3,7 @@
     <div class="col-sm">
       <div class="form-floating mb-3">
         <input [(ngModel)]="email" type="text" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com">
-        <label for="floatingInput">Nombre de usuario o dirección de correo electrónico</label>
+        <label for="floatingInput">Nombre de usuario</label>
       </div>
 
       <div class="form-floating">
@@ -16,9 +16,12 @@
           Iniciar sesión
         </button>
       </div>
-          
-      <div *ngIf="error" class="alert alert-danger">
-        Error
+        
+      <div *ngIf="codigo==401" class="alert alert-danger">
+        Nombre de usuario y/o contraseña incorrectos.
+      </div>
+      <div *ngIf="codigo==500" class="alert alert-danger">
+        Error en el servidor.
       </div>
     </div>
     

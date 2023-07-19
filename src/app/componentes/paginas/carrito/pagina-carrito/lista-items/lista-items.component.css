@@ -16,6 +16,7 @@ h2 {
 }
 button {
     box-shadow: 4px 4px 4px white;
+    margin: 15px;
 }
 #carritoVacio {
     display: flex;

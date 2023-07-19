@@ -3,16 +3,21 @@ import { IUsuario } from '../modelos/iusuario';
 import { IProducto } from '../modelos/producto-interface';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  uri = "https://nakama-0.azurewebsites.net";
+  // uri = "https://nakama-0.azurewebsites.net";
   // uri = "http://localhost:8080";
+  // uri = "http://localhost:3000";
+  uri = "https://nakama-b-n.onrender.com";
 
   error = false;
+  codigo: any;
+  user: any;
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -22,7 +27,12 @@ export class AuthService {
         this.router.navigate(["login"]);
       }, (err: any) => {
         // alert("error")
-        this.error = true;
+        if (err.status==200) {
+          this.router.navigate(["login"]);
+        } else {
+          this.error = true;
+        }
+        // console.log(err)
       })
       // console.log(this.uri)
   }
@@ -39,21 +49,23 @@ export class AuthService {
     this.http.post(this.uri + "/login", {username: username, password: password})
       .subscribe(
         response => {
+          // this.router.navigate(["tienda"])
+          // console.log("Respuesta:"+response)
+          // localStorage.setItem("token", response);
+          this.error = false;
           this.router.navigate(["tienda"])
-            localStorage.setItem("token", "1")
+          localStorage.setItem("token", response.toString())
+          if (username=="Chi") {
+            localStorage.setItem("admin", "1")
+          }
         },
         (err: any) => {
           // console.log(err)
           if (err.status==200) {
-            this.error = false;
-            this.router.navigate(["tienda"])
-            localStorage.setItem("token", "1")
-            if (username=="Kbe") {
-              localStorage.setItem("admin", "1")
-            }
             // respuesta = false
           } else {
             this.error = true;
+            this.codigo = err.status;
             // respuesta = true
           }
         }
@@ -61,46 +73,12 @@ export class AuthService {
       // this.error = true;
       // let respuesta: boolean;
       // return respuesta;
+  }  
+
+
+  getUsuario(): Observable<any> {
+    // if (id!=null) {
+      return this.http.get(this.uri + "/usuario/" + localStorage.getItem("token"));
+    // }
   }
-
-  listaCarrito: IProducto[] = [
-    
-  ];
-
-  listaProductos: IProducto[] = [
-    
-  ];
-
-  // listaUsuarios: IUsuario[] = [
-  //   {
-  //     id: 1,
-  //     email: "g.leonel.m17@gmail.com",
-  //     username: "Kbe",
-  //     password: "Admin"
-  //   },
-  //   {
-  //     id: 2,
-  //     email: "a",
-  //     username: "a",
-  //     password: "a"
-  //   },
-  //   {
-  //     id: 3,
-  //     email: "A",
-  //     username: "A",
-  //     password: "A"
-  //   }
-  // ];
-
-  total: number = 0;
-
-  sumarTotal(lista: IProducto[]) {
-    let totall: number = 0;
-    for (let item of lista) {
-      totall = totall + (item.precio*item.cantidad);
-    }
-    this.total = totall
-  }
-
-  
 }

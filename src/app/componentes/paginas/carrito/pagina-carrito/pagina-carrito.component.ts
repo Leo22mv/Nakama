@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IProducto } from 'src/app/modelos/producto-interface';
-import { AuthService } from 'src/app/servicios/auth.service';
+import { ListaProductosService } from 'src/app/servicios/lista-productos.service';
 
 @Component({
   selector: 'app-pagina-carrito',
@@ -11,10 +11,10 @@ export class PaginaCarritoComponent implements OnInit {
 
   listaCarrito: IProducto[] = []
 
-  constructor(private auth: AuthService) { }
+  constructor(private lpServ: ListaProductosService) { }
 
   ngOnInit(): void {
-    this.listaCarrito = this.auth.listaCarrito
+    this.listaCarrito = this.lpServ.listaCarrito
   }
 
 }

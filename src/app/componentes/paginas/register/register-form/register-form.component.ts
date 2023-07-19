@@ -48,7 +48,7 @@ export class RegisterFormComponent implements OnInit {
   //         // Manejar errores de la solicitud
   //       }
   //     );
-    this.actualizarBoton()
+    // this.actualizarBoton()
     this.actualizarError()
   }
 

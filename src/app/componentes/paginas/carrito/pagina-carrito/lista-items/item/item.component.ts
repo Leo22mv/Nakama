@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { IProducto } from 'src/app/modelos/producto-interface';
 import { AuthService } from 'src/app/servicios/auth.service';
+import { ListaProductosService } from 'src/app/servicios/lista-productos.service';
 
 @Component({
   selector: 'app-item',
@@ -26,7 +27,7 @@ export class ItemComponent implements OnInit, OnChanges {
 
   @Output() totalEmit: EventEmitter<number> = new EventEmitter<number>();
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: ListaProductosService) { }
   ngOnChanges(changes: SimpleChanges): void {
     
   }

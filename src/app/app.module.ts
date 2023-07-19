@@ -48,6 +48,8 @@ import { AAdminComponent } from './componentes/header/a-admin/a-admin.component'
 import { AdminComponent } from './componentes/paginas/admin/admin.component';
 import { AgregarProductoComponent } from './componentes/paginas/admin/agregar-producto/agregar-producto.component';
 import { EliminarProductoComponent } from './componentes/paginas/admin/eliminar-producto/eliminar-producto.component';
+import { PaginaPerfilComponent } from './componentes/paginas/perfil/pagina-perfil/pagina-perfil.component';
+import { ComprasComponent } from './componentes/paginas/perfil/pagina-perfil/compras/compras.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +96,9 @@ import { EliminarProductoComponent } from './componentes/paginas/admin/eliminar-
     AAdminComponent,
     AdminComponent,
     AgregarProductoComponent,
-    EliminarProductoComponent
+    EliminarProductoComponent,
+    PaginaPerfilComponent,
+    ComprasComponent
   ],
   imports: [
     BrowserModule,

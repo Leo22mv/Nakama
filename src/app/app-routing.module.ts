@@ -9,8 +9,13 @@ import { RegisterComponent } from './componentes/paginas/register/register.compo
 import { AdminComponent } from './componentes/paginas/admin/admin.component';
 import { AgregarProductoComponent } from './componentes/paginas/admin/agregar-producto/agregar-producto.component';
 import { EliminarProductoComponent } from './componentes/paginas/admin/eliminar-producto/eliminar-producto.component';
+import { PerfilComponent } from './componentes/paginas/perfil/perfil.component';
+import { ComprasComponent } from './componentes/paginas/perfil/pagina-perfil/compras/compras.component';
 
 const routes: Routes = [
+  {path: "perfil", component: PerfilComponent, children: [
+    {path:"compras", component:ComprasComponent}
+  ]},
   {path: "admin", component: AdminComponent, children: [
     {path:"agregar", component: AgregarProductoComponent},
     {path:"eliminar", component: EliminarProductoComponent}

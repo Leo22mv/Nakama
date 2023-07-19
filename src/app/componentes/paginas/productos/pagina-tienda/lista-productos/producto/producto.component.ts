@@ -3,6 +3,7 @@ import { NavigationExtras, Router } from '@angular/router';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { ProductosService } from 'src/app/servicios/productos.service';
 import { IProducto } from '../../../../../../modelos/producto-interface';
+import { ListaProductosService } from 'src/app/servicios/lista-productos.service';
 
 @Component({
   selector: 'app-producto',
@@ -28,7 +29,7 @@ export class ProductoComponent implements OnInit {
     cantidad: 1
   };
 
-  constructor(private auth: AuthService, private router: Router, private prserv: ProductosService) { }
+  constructor(private auth: ListaProductosService, private router: Router, private prserv: ProductosService) { }
 
   ngOnInit(): void {
     // console.log(this.producto)

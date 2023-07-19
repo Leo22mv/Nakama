@@ -1,5 +1,21 @@
 <app-header></app-header>
-<div style="display: flex; justify-content: center;">
+<!-- <div style="display: flex; justify-content: center;">
 <h1 class="display-1" style="color: white; margin: 100px">Checkout en mantenimiento</h1>
+</div> -->
+
+<div *ngFor="let item of lista" class="container">
+    <h1>Cantidad: {{ item.cantidad }}, Nombre: {{ item.nombre }}, Precio: ${{ item.precio }}</h1>
 </div>
+
+<div class="container">
+    <h1>Total: ${{ total }}</h1>
+</div>
+
+<div class="container">
+    <button class="btn btn-dark btn-lg" (click)="confirmar()">Confirmar compra</button>
+</div>
+<div class="container">
+    <button class="btn btn-dark" routerLink="/carrito">Volver al carrito</button>
+</div>
+
 <app-footer></app-footer>

@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { IProducto } from 'src/app/modelos/producto-interface';
 import { AuthService } from 'src/app/servicios/auth.service';
+import { ListaProductosService } from 'src/app/servicios/lista-productos.service';
 
 @Component({
   selector: 'app-lista-items',
@@ -9,11 +10,11 @@ import { AuthService } from 'src/app/servicios/auth.service';
 })
 export class ListaItemsComponent implements OnInit, OnChanges {
 
-  @Input() listaCarrito: IProducto[] = []
+  @Input() listaCarrito: IProducto[] = [];
 
   total: number = 0
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: ListaProductosService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.actualizarTotal()
@@ -36,4 +37,7 @@ export class ListaItemsComponent implements OnInit, OnChanges {
     this.total = total;
   }
 
+  submit() {
+    this.auth.listaCarrito = this.listaCarrito;
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IProducto } from 'src/app/modelos/producto-interface';
 import { AuthService } from 'src/app/servicios/auth.service';
+import { ListaProductosService } from 'src/app/servicios/lista-productos.service';
 
 @Component({
   selector: 'app-carrito-btn',
@@ -13,7 +14,7 @@ export class CarritoBtnComponent implements OnInit {
 
   logged: boolean | undefined;
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: ListaProductosService) { }
 
   ngOnInit(): void {
     if (localStorage.getItem("token")) {

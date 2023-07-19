@@ -1,0 +1,12 @@
+h1 {
+    color: white;
+    text-shadow: 2px 5px 7px white;
+    margin: 20px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+}
+.btn {
+    margin: 20px;
+}

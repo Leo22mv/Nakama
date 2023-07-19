@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+.btn {
+    margin-top: 15px
+}
+h1 {
+    color: white;
+}
