@@ -36,11 +36,24 @@ export class ProductoComponent implements OnInit {
   }
 
   agregarAlCarrito(producto: IProducto) {
+    let estaba = false;
     if (localStorage.getItem("token")) {
       if(!producto.cantidad) {
         producto.cantidad = 1;
       }
-      this.auth.listaCarrito.push(producto);
+      if (this.auth.listaCarrito.length>0) {
+        for (let item of this.auth.listaCarrito) {
+          if (producto.nombre==item.nombre) {
+            item.cantidad++;
+            estaba = true;
+          }
+          if (!estaba) {
+            this.auth.listaCarrito.push(producto);
+          }
+        }
+      } else {
+        this.auth.listaCarrito.push(producto);
+      }
     } else {
       this.router.navigate(["/login"])
     }

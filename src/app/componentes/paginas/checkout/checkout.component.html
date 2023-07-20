@@ -3,8 +3,10 @@
 <h1 class="display-1" style="color: white; margin: 100px">Checkout en mantenimiento</h1>
 </div> -->
 
-<div *ngFor="let item of lista" class="container">
-    <h1>Cantidad: {{ item.cantidad }}, Nombre: {{ item.nombre }}, Precio: ${{ item.precio }}</h1>
+<div class="list-group container">
+    <div *ngFor="let item of lista">
+        <div class="list-group-item">Cantidad: {{ item.cantidad }} - Nombre: {{ item.nombre }} - Precio: ${{ item.precio }}</div>
+    </div>
 </div>
 
 <div class="container">
@@ -17,5 +19,16 @@
 <div class="container">
     <button class="btn btn-dark" routerLink="/carrito">Volver al carrito</button>
 </div>
+
+<!-- <div class="container"> -->
+    <div class="alert alert-danger" role="alert">
+        ¡Atención! Solo disponible para retiro en Córdoba Capital, Córdoba
+    </div>
+<!-- </div> -->
+<!-- <div class="container"> -->
+    <div class="alert alert-danger" role="alert">
+        ¡Atención! Solo disponible para pago con transferencia
+    </div>
+<!-- </div> -->
 
 <app-footer></app-footer>
