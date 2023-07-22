@@ -52,6 +52,7 @@ import { PaginaPerfilComponent } from './componentes/paginas/perfil/pagina-perfi
 import { ComprasComponent } from './componentes/paginas/perfil/pagina-perfil/compras/compras.component';
 import { ConfirmacionComponent } from './componentes/paginas/confirmacion/confirmacion.component';
 import { VerComprasComponent } from './componentes/paginas/admin/ver-compras/ver-compras.component';
+import { VerUsuariosComponent } from './componentes/paginas/admin/ver-usuarios/ver-usuarios.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +103,8 @@ import { VerComprasComponent } from './componentes/paginas/admin/ver-compras/ver
     PaginaPerfilComponent,
     ComprasComponent,
     ConfirmacionComponent,
-    VerComprasComponent
+    VerComprasComponent,
+    VerUsuariosComponent
   ],
   imports: [
     BrowserModule,

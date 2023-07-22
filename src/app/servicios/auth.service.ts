@@ -83,4 +83,8 @@ export class AuthService {
       return this.http.get(this.uri + "/usuario/" + localStorage.getItem("token"));
     // }
   }
+
+  getUsuarios() {
+    return this.http.get<any[]>(this.uri+"/usuarios");
+  }
 }

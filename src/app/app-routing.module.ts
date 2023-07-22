@@ -13,6 +13,7 @@ import { PerfilComponent } from './componentes/paginas/perfil/perfil.component';
 import { ComprasComponent } from './componentes/paginas/perfil/pagina-perfil/compras/compras.component';
 import { ConfirmacionComponent } from './componentes/paginas/confirmacion/confirmacion.component';
 import { VerComprasComponent } from './componentes/paginas/admin/ver-compras/ver-compras.component';
+import { VerUsuariosComponent } from './componentes/paginas/admin/ver-usuarios/ver-usuarios.component';
 
 const routes: Routes = [
   {path: "confirmacion", component: ConfirmacionComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
     {path:"compras", component:ComprasComponent}
   ]},
   {path: "admin", component: AdminComponent, children: [
+    {path: "usuarios", component: VerUsuariosComponent},
     {path: "compras", component: VerComprasComponent},
     {path:"agregar", component: AgregarProductoComponent},
     {path:"eliminar", component: EliminarProductoComponent}
