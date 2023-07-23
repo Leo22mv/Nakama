@@ -13,7 +13,9 @@ export class VerUsuariosComponent implements OnInit {
   constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
-    this.listaUsuarios = this.auth.getUsuarios();
+    this.listaUsuarios = this.auth.getUsuarios().subscribe(res => {
+      this.listaUsuarios = res;
+    })
   }
 
 }
