@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { AuthService } from 'src/app/servicios/auth.service';
 // import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 // import { HttpClient } from '@angular/common/http';
@@ -18,8 +20,11 @@ export class RegisterFormComponent implements OnInit {
 
   error: boolean = false
   errorValidacion: boolean = false
+  loading: boolean = false;
 
   codigo: number = 0;
+
+  uri = "";
 
   // registroForm: FormGroup;
 
@@ -31,11 +36,26 @@ export class RegisterFormComponent implements OnInit {
   //   });
   // }
 
-  constructor (private authService: AuthService) {}
+  constructor (private authService: AuthService, private http: HttpClient, private router: Router) {}
 
   onSubmit() {
     if (this.username.length>0&&this.password.length>0&&this.email.length>0) {
-      this.authService.register(this.email, this.username, this.password)
+      this.loading = true;
+      // this.authService.register(this.email, this.username, this.password)
+      this.http.post(this.uri + "/registrarse", {email: this.email, username: this.username, password: this.password})
+      .subscribe((resp:any) => {
+        this.router.navigate(["login"]);
+      }, (err: any) => {
+        this.loading = false;
+        // alert("error")
+        if (err.status==200) {
+          this.router.navigate(["login"]);
+        } else if (err.status==401){
+          this.error = true;
+          this.codigo = 401
+        }
+        // console.log(err)
+      })
       this.errorValidacion = false;
       // if (this.registroForm.invalid) {
     //     return;
@@ -53,7 +73,7 @@ export class RegisterFormComponent implements OnInit {
     //       }
     //     );
       // this.actualizarBoton()
-      this.actualizarError()
+      // this.actualizarError()
       this.codigo = this.authService.codigo;
       console.log(this.codigo)
     } else {
@@ -86,6 +106,7 @@ export class RegisterFormComponent implements OnInit {
   // constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
+    this.uri = this.authService.uri;
   }
 
 

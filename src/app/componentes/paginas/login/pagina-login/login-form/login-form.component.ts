@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -18,12 +19,16 @@ export class LoginFormComponent implements OnInit, OnChanges {
   error: boolean = false;
   codigo: any = 0;
 
+  loading: boolean = false;
+
   boton: string = "btn btn-dark btn-lg";
 
   errorValidacion = false;
 
+  uri = "";
+
   // constructor(private auth: AuthService, private router: Router, private formBuilder: FormBuilder) {
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router, private http: HttpClient) {
     // this.form = this.formBuilder.group({
     //   username:["",[]],
     //   password["",[]]
@@ -35,11 +40,13 @@ export class LoginFormComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    console.log(this.codigo);
+    // console.log(this.codigo);
+    this.uri = this.authService.uri;
   }
 
   onSubmit() {
     if (this.password.length>0&&this.email.length>0) {
+      this.loading = true;
       // for (let usuario of this.auth.listaUsuarios) {
       //   if ((usuario.email==this.email||usuario.username==this.email)&&usuario.password==this.password) {
       //     localStorage.setItem("token", "1");
@@ -49,9 +56,36 @@ export class LoginFormComponent implements OnInit, OnChanges {
       //   }
       // }
 
-      this.authService.login(this.email, this.password);
+      // this.authService.login(this.email, this.password);
 
-      this.codigo = this.authService.codigo
+      // this.codigo = this.authService.codigo
+
+      this.http.post(this.uri + "/login", {username: this.email, password: this.password})
+      .subscribe(
+        response => {
+          // this.router.navigate(["tienda"])
+          // console.log("Respuesta:"+response)
+          // localStorage.setItem("token", response);
+          this.error = false;
+          this.loading = false;
+          this.router.navigate(["tienda"])
+          localStorage.setItem("token", response.toString())
+          if (this.email=="Chi") {
+            localStorage.setItem("admin", "1")
+          }
+        },
+        (err: any) => {
+          // console.log(err)
+          if (err.status==200) {
+            // respuesta = false
+          } else {
+            this.error = true;
+            this.codigo = err.status;
+            this.loading = false;
+            // respuesta = true
+          }
+        }
+      )
 
       // this.actualizarBoton()
       

@@ -75,6 +75,9 @@ export class ListaProductosComponent implements OnInit, OnChanges {
 
   agregado: boolean = false;
 
+  loading: boolean = false;
+  error: boolean = false;
+
   // params: string = "Todas";
   // params2: string | undefined;
 
@@ -94,6 +97,8 @@ export class ListaProductosComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
 
+    this.loading = true
+
     this.filtroActivo = false;
 
     // this.route.queryParams.subscribe(params => this.params = params['categoria']);
@@ -109,6 +114,7 @@ export class ListaProductosComponent implements OnInit, OnChanges {
 
   getProductos() {
     this.prodServ.obtener().subscribe(res=> {
+      this.loading = false;
       this.listaProductosTotal = res;
       this.listaProductosOrdenada = res;
     })

@@ -11,3 +11,6 @@ button, input {
 .alert {
     margin: 15px;
 }
+.spinner-border {
+    margin-top: 15px;
+}
