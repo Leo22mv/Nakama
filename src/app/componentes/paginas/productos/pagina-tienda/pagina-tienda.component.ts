@@ -12,6 +12,8 @@ export class PaginaTiendaComponent implements OnInit {
   categoriaActual: string = "todos";
   listaProductosTotal: any[] = []
 
+  loaded: boolean = false;
+
 
   constructor(private prodServ: ProductosService) {
     this.getProductos();
@@ -38,6 +40,10 @@ export class PaginaTiendaComponent implements OnInit {
 
   actualizarCategoria(categoria: string) {
     this.categoriaActual = categoria;
+  }
+
+  onLoaded(event: boolean) {
+    this.loaded = true;
   }
 
 }

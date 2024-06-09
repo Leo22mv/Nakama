@@ -22,7 +22,7 @@ export class AgregarProductoComponent implements OnInit {
   }
 
   agregar() {
-    this.prodServ.agregar(this.nombre, this.descripcion, "../../../../../../assets/img/isotipo.png", this.precio, this.categoria, this.serie, this.stock)
+    this.prodServ.agregar(this.nombre, this.descripcion, "../../../../../../assets/img/campera-naruto.webp", this.precio, this.categoria, this.serie, this.stock)
   }
 
 }

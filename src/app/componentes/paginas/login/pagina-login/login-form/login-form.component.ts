@@ -45,6 +45,10 @@ export class LoginFormComponent implements OnInit, OnChanges {
   }
 
   onSubmit() {
+    scrollTo({
+      behavior: 'smooth',
+      top: document.body.getBoundingClientRect().bottom
+    })
     if (this.password.length>0&&this.email.length>0) {
       this.loading = true;
       // for (let usuario of this.auth.listaUsuarios) {

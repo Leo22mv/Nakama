@@ -26,6 +26,8 @@ export class RegisterFormComponent implements OnInit {
 
   uri = "";
 
+  successCreated: boolean = false;
+
   // registroForm: FormGroup;
 
   // constructor(private formBuilder: FormBuilder, private http: HttpClient) {
@@ -39,17 +41,30 @@ export class RegisterFormComponent implements OnInit {
   constructor (private authService: AuthService, private http: HttpClient, private router: Router) {}
 
   onSubmit() {
+    this.successCreated = false
+    scrollTo({
+      behavior: 'smooth',
+      top: document.body.getBoundingClientRect().bottom
+    })
     if (this.username.length>0&&this.password.length>0&&this.email.length>0) {
       this.loading = true;
       // this.authService.register(this.email, this.username, this.password)
       this.http.post(this.uri + "/registrarse", {email: this.email, username: this.username, password: this.password})
       .subscribe((resp:any) => {
-        this.router.navigate(["login"]);
+        this.successCreated = true;
+        scrollTo({
+          behavior: 'smooth',
+          top: document.body.getBoundingClientRect().bottom
+        })
       }, (err: any) => {
         this.loading = false;
         // alert("error")
         if (err.status==200) {
-          this.router.navigate(["login"]);
+          this.successCreated = true;
+          scrollTo({
+            behavior: 'smooth',
+            top: document.body.getBoundingClientRect().bottom
+          })
         } else if (err.status==401){
           this.error = true;
           this.codigo = 401

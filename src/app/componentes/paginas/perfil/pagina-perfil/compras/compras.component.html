@@ -1,7 +1,20 @@
 <div class="container">
-    <div class="list-group">
-        <div *ngFor="let compra of listaCompras">
-            <div class="list-group-item">Código de compra: {{ compra.id_compra }}, Total: ${{ compra.total }}</div>
+    <div class="spinner-border text-light" role="status" *ngIf="loading">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+<div class="container" *ngIf="!loading">
+    <ul class="list-group">
+        <li *ngFor="let compra of listaCompras" class="list-group-item list-group-item-dark">
+            Código de compra: {{ compra.id_compra }}, Total: ${{ compra.total }}
+        </li>
+    </ul>
+</div>
+<div class="row" *ngIf="empty">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <div class="alert alert-success">
+            No posee compras.
         </div>
     </div>
 </div>

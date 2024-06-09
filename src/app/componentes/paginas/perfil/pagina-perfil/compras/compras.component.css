@@ -1,3 +1,7 @@
-li {
-    color: white;
+.container {
+    display: flex;
+    justify-content: center;
+}
+.alert {
+    text-align: center;
 }

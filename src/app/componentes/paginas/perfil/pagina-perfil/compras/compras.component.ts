@@ -11,6 +11,10 @@ export class ComprasComponent implements OnInit {
   id: any;
   listaCompras: any[] = [];
 
+  loading: boolean = true;
+
+  empty: boolean = false;
+
   constructor(private compraServ: CompraService) { }
 
   ngOnInit(): void {
@@ -22,6 +26,12 @@ export class ComprasComponent implements OnInit {
           this.listaCompras.push(compra);
         }
       }
+      
+      if (this.listaCompras.length < 1) {
+        this.empty = true;
+      }
+
+      this.loading = false;
     })
   }
 

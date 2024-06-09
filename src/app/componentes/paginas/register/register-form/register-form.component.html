@@ -45,6 +45,11 @@
         <div *ngIf="codigo==401&&!errorValidacion" class="alert alert-danger">
           Email o nombre de usuario existentes
         </div>
+        <div *ngIf="successCreated" class="alert alert-success" style="text-align: center;">
+          Cuenta creada correctamente.
+          <br>
+          <a style="text-decoration: underline;" routerLink="/login">Iniciar sesión</a>
+        </div>
       <!-- </form> -->
           <!-- <div *ngIf="errorActual!==undefined" class="alert alert-success"> -->
             <!-- <div class="alert alert-success">

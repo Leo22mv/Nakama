@@ -1,5 +1,5 @@
 <app-categorias (ordenarEmit)="actualizarCategoria($event)"></app-categorias>
 <app-ordenar (ordenarEmit)="actualizarOrden($event)"></app-ordenar>
 <!-- <app-filtros></app-filtros> -->
-<app-lista-productos  [ordenActual]="ordenActual" [categoriaActual]="categoriaActual"></app-lista-productos>
-<app-paginacion></app-paginacion>
+<app-lista-productos  [ordenActual]="ordenActual" [categoriaActual]="categoriaActual" (loaded)="onLoaded($event)"></app-lista-productos>
+<app-paginacion *ngIf="loaded"></app-paginacion>

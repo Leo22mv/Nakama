@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Params, Router } from '@angular/router';
 import { IProducto } from '../../../../../modelos/producto-interface';
 import { ProductosService } from 'src/app/servicios/productos.service';
@@ -84,6 +84,8 @@ export class ListaProductosComponent implements OnInit, OnChanges {
   @Input() ordenActual: string | undefined;
   @Input() categoriaActual: string | undefined;
 
+  @Output() loaded: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   constructor(private route: ActivatedRoute, private prodServ: ProductosService, private listaProdService: ListaProductosService, private http: HttpClient) {
     // this.getProductos();
     this.actualizarCategoria();
@@ -117,6 +119,7 @@ export class ListaProductosComponent implements OnInit, OnChanges {
       this.loading = false;
       this.listaProductosTotal = res;
       this.listaProductosOrdenada = res;
+      this.loaded.emit(true)
     })
 
     // this.prodServ.obtener().subscribe(

@@ -11,12 +11,15 @@ export class PaginaPerfilComponent implements OnInit {
 
   user: any;
 
+  loading: boolean = true;
+
   constructor(private auth: AuthService, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.auth.getUsuario()
       .subscribe(res => {
         this.user = res;
+        this.loading = false;
       });
 
     // this.http.get("http://localhost:3000"+"/usuario/"+localStorage.getItem("token")).subscribe(res => {
